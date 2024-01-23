@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Setup
 
 - Add `shadcn/ui` using `npx shadcn-ui@latest init`
+- Testing
+  - Jest
+    - `npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom`
+    - `npm init jest@latest`
+    - `npm install -D ts-node`
+    - `npm install --save-dev @jest/globals`
 
 ## Getting Started
 
