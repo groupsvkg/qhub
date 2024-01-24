@@ -53,7 +53,7 @@ const MarketingPage = () => {
                 "text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto",
                 textFont.className
             )}>
-                Dive into a world of endless knowledge and excitement with Quiz Hub, where every question is a stepping stone to brilliance. Whether you&apos;re a trivia enthusiast or a casual learner, our diverse range of quizzes caters to all levels of expertise. Challenge yourself, compete with friends, and embark on a journey of discovery. Ignite your intellect, one quiz at a time!
+                Dive into a world of endless knowledge and excitement with QHub, where every question is a stepping stone to brilliance. Whether you&apos;re a trivia enthusiast or a casual learner, our diverse range of quizzes caters to all levels of expertise. Challenge yourself, compete with friends, and embark on a journey of discovery. Ignite your intellect!
             </div>
             <Button className="mt-6" size="lg">
                 <Link href="/sign-up">Get Started</Link>
