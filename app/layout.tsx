@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/config/site";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "QHub",
-  description: "Explore, Play, and Learn",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`
+  },
+  description: siteConfig.description,
   icons: [
     {
-      url: "/logo.svg"
+      url: "/logo.svg",
+      href: "/logo.svg"
     }
   ]
 };
