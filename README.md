@@ -16,7 +16,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   - Install `prisma` using `npm install -D prisma`
   - Install prisma client using `npm install @prisma/client`
   - Init prisma `npx prisma init`
-  - `npx prisma db push`
+  - Use `npx prisma db push` to push new changes followed by `npx prisma generate`
+  - Use `npx prisma studio` to view data
+- ngrok
+  - `ngrok http --domain=amoeba-suited-basically.ngrok-free.app 3000`
+- Webhooks
+  - Install `svix` using `npm install svix`
 
 ## Getting Started
 
