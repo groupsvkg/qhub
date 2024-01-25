@@ -12,6 +12,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
     - `npm install --save-dev @jest/globals`
 - Authentication
   - Install `clerk` using `npm install @clerk/nextjs`
+- Database setup
+  - Install `prisma` using `npm install -D prisma`
+  - Install prisma client using `npm install @prisma/client`
+  - Init prisma `npx prisma init`
+  - `npx prisma db push`
 
 ## Getting Started
 
