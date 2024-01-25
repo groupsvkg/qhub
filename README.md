@@ -10,6 +10,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
     - `npm init jest@latest`
     - `npm install -D ts-node`
     - `npm install --save-dev @jest/globals`
+- Authentication
+  - Install `clerk` using `npm install @clerk/nextjs`
 
 ## Getting Started
 
