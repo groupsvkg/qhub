@@ -1,14 +1,14 @@
-import { Sidebar } from "../_components/sidebar";
+import { Sidebar } from "../_components/sidebar"
 
-const HomePage = () => {
+const ActivityPage = () => {
     return (
         <div className="pt-16 md:pl-60 h-full">
             <div className="hidden md:block">
                 <Sidebar />
             </div>
-            Home Page
+            Activity Page
         </div>
     );
 };
 
-export default HomePage;
+export default ActivityPage;
