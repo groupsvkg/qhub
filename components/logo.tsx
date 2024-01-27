@@ -18,7 +18,7 @@ export const Logo = () => {
                     width={30}
                 />
                 <p className={cn(
-                    "text-lg text-neutral-700",
+                    "text-lg text-neutral-700 pt-1",
                     headingFont.className
                 )}>
                     QHub
