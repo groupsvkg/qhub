@@ -24,7 +24,8 @@
     "react-dom": "^18",
     "svix": "^1.16.0",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",

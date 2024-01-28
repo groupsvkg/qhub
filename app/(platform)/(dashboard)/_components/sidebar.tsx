@@ -1,7 +1,6 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Activity, BadgeAlertIcon, BadgeRussianRubleIcon, Grip, LucideAlarmSmoke, Trophy, Users } from "lucide-react";
+import { currentUser } from "@clerk/nextjs";
+import { Activity, Grip, Trophy, Users } from "lucide-react";
 import Link from "next/link";
 
 const routes = [
@@ -27,16 +26,17 @@ const routes = [
     }
 ];
 
-export const Sidebar = () => {
+export const Sidebar = async () => {
+    const user = await currentUser();
+
     return (
         <aside className="fixed left-0 h-full w-52 flex flex-col border-r z-50 shadow-sm p-6 space-y-2 ">
-            <h1 className="text-sm font-medium leading-none mb-1">QHub</h1>
+            <h1 className="text-md font-bold leading-none mb-4 text-muted-foreground">Hello {user?.firstName}</h1>
             {
                 routes.map(route => (
                     <Link key={route.href} href={route.href}>
                         <div className="flex items-center justify-between text-sm text-muted-foreground">
                             <div className="flex">{route.icon} {route.label}</div>
-                            {/* <Badge variant="outline" >2</Badge> */}
                         </div>
                     </Link>
                 ))
