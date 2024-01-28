@@ -1,17 +1,17 @@
 import { Separator } from "@/components/ui/separator";
 import { Sidebar } from "../_components/sidebar"
 import { currentUser } from "@clerk/nextjs";
-import { db } from "@/lib/db";
 import Image from "next/image";
+import { getUserById } from "@/lib/user-service";
 
 const ProfilePage = async () => {
-    const user = await currentUser();
+    const externalUser = await currentUser();
 
-    const dbUser = await db.user.findUnique({
-        where: {
-            externalUserId: user?.id
-        }
-    });
+    if(!externalUser) {
+        throw new Error("Unauthorized");
+    }
+
+    const user = await getUserById(externalUser?.id);
 
     return (
         <div className="pt-16 md:pl-60 h-full">
@@ -20,9 +20,9 @@ const ProfilePage = async () => {
             </div>
             <div className="p-4 space-y-2">
                 <h1 className="text-xl font-bold mt-2">Profile</h1>
-                {dbUser && <div className="w-full flex flex-col items-start justify-center">
+                {user && <div className="w-full flex flex-col items-start justify-center">
                     <Image 
-                        src={dbUser?.imageUrl}
+                        src={user?.imageUrl}
                         alt="user image"
                         height={200}
                         width={200}
@@ -31,7 +31,7 @@ const ProfilePage = async () => {
                 </div>}
                 <Separator orientation="horizontal"/>
                 <h1 className="text-md text-muted-foreground font-semibold">
-                    {dbUser?.firstName}&nbsp;{dbUser?.lastName}
+                    {user?.firstName}&nbsp;{user?.lastName}
                 </h1>
                 <h1 className="text-xl text-muted-foreground font-semibold">Bio</h1>
             </div>
