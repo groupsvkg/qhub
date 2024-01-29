@@ -23,12 +23,12 @@ export const Profile = ({ user }: ProfileProps) => {
             {user.bio && <p className="text-gray-500 dark:text-gray-400">{user.bio}</p>}
             <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
-                    <Grip className="h-5 w-5 text-green-500"/>
-                    <span className="text-gray-500">300 solved</span>
+                    <Grip className="h-4 w-4 text-green-500"/>
+                    <span className="text-sm text-gray-500">300 solved</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <Hourglass className="w-5 h-5 text-red-500"/>
-                    <span className="text-gray-500">500 inprogress</span>
+                    <Hourglass className="w-4 h-4 text-red-500"/>
+                    <span className="text-sm text-gray-500">500 inprogress</span>
                 </div>
             </div>
         </div>
