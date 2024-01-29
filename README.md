@@ -43,6 +43,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Data Model
 
+- Identify entities involved :hourglass_flowing_sand:
+- Update entities and relationship in `schema.prisma` :hourglass_flowing_sand:
+- Generate and push the changes. 
 
 
 ## Getting Started
