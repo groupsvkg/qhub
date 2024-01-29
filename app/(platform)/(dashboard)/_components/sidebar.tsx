@@ -46,14 +46,14 @@ export const Sidebar = () => {
 
     return (
         <aside className="hidden md:block fixed left-0 h-full w-60 border-r z-50 shadow-sm p-6 space-y-4">
-            <h1 className="text-xl font-bold">Hello {user?.firstName}</h1>
+            <h1 className="text-lg font-bold">Hello, {user?.firstName}</h1>
             <div className="flex flex-col justify-center space-y-1 pl-4">
                 {
                     routes.map(route => (
                         <Link key={route.href} href={route.href} className="hover:bg-gray-200">
                             <div className={cn(
                                 "flex items-center justify-start p-1",
-                                pathname === route.href && "border-l-2 border-pink-300"
+                                pathname === route.href && "border-l-2 border-purple-300"
                                 )}>
                                 <div>{route.icon}</div>
                                 <span className="text-gray-500 text-sm">{route.label}</span>
