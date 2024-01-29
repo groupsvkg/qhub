@@ -11,7 +11,7 @@ interface ProfileProps {
 export const Profile = ({ user }: ProfileProps) => {
     return (
         <div className="flex flex-col items-center py-6 space-y-6">
-            <div className="w-32 h-32 rounded-full bg-red-300 overflow-hidden">
+            <div className="w-32 h-32 rounded-full overflow-hidden">
                 <Image 
                     alt="Profile picture"
                     src={user.imageUrl}
