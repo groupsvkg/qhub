@@ -41,7 +41,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - Display profile image and full name :heavy_check_mark:
 
-### Data Model
+## Data Model
 
 
 

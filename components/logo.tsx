@@ -10,7 +10,7 @@ const headingFont = localFont({
 export const Logo = () => {
     return (
         <Link href="/">
-            <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
+            <div className="hover:opacity-75 transition items-center space-x-1 md:flex ml-1">
                 <Image 
                     src="/logo.svg"
                     alt="Logo"
@@ -18,7 +18,7 @@ export const Logo = () => {
                     width={30}
                 />
                 <p className={cn(
-                    "text-lg text-neutral-700 pt-1",
+                    "hidden md:block text-lg text-neutral-700 pt-1",
                     headingFont.className
                 )}>
                     QHub

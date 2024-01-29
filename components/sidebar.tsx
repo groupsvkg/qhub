@@ -45,7 +45,7 @@ export const Sidebar = () => {
     const pathname = usePathname();
 
     return (
-        <aside className="hidden md:block fixed left-0 h-full w-60 border-r z-50 shadow-sm p-6 space-y-4">
+        <aside className="hidden md:block fixed left-0 h-full w-60 border-r z-50 shadow-sm p-6 pt-4 space-y-2">
             <h1 className="text-lg font-bold">Hello, {user?.firstName}</h1>
             <div className="flex flex-col justify-center space-y-1 pl-4">
                 {
