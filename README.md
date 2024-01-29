@@ -23,6 +23,28 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Webhooks
   - Install `svix` using `npm install svix`
 
+## Tasks
+
+### Home Page
+
+### Problems Page
+
+### Post Page
+
+### Activity Page
+
+### Leaderboard Page
+
+### Users Page
+
+### Profile Page
+
+- Display profile image and full name :heavy_check_mark:
+
+### Data Model
+
+
+
 ## Getting Started
 
 First, run the development server:

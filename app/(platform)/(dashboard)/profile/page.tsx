@@ -1,7 +1,5 @@
-import { Separator } from "@/components/ui/separator";
-import { Sidebar } from "../_components/sidebar"
+import { Sidebar } from "@/components/sidebar"
 import { currentUser } from "@clerk/nextjs";
-import Image from "next/image";
 import { getUserById } from "@/lib/user-service";
 import { Profile } from "@/components/profile";
 
