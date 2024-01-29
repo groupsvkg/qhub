@@ -2,11 +2,11 @@ import { Sidebar } from "../_components/sidebar"
 
 const ActivityPage = () => {
     return (
-        <div className="pt-16 md:pl-60 h-full">
-            <div className="hidden md:block">
-                <Sidebar />
+        <div className="pt-16">
+            <Sidebar />
+            <div className="md:pl-60 h-full ">
+                Activity Page
             </div>
-            Activity Page
         </div>
     );
 };

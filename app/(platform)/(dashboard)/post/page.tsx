@@ -1,14 +1,14 @@
-import { Sidebar } from "../_components/sidebar"
+import { Sidebar } from "../_components/sidebar";
 
-const LeaderboardPage = () => {
+const PostPage = () => {
     return (
         <div className="pt-16">
             <Sidebar />
             <div className="md:pl-60 h-full ">
-                Leaderboard Page
+                Post Page
             </div>
         </div>
     );
 };
 
-export default LeaderboardPage;
+export default PostPage;
