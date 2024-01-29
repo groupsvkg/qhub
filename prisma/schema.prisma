@@ -16,6 +16,107 @@ model User {
   externalUserId String @unique
   bio String? @db.Text
 
+  problem Problem[]
+  activity Activity[]
+  leaderboard Leaderboard?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Problem {
+  id String @id @default(uuid())
+  title String @db.Text
+  description String? @db.Text
+  url String? @db.Text
+
+  type ProblemType @default(TEXT)
+  difficulty ProblemDifficulty @default(EASY)
+
+  category Category[]
+  answer Answer[]
+  activity Activity[]
+
+  user User @relation(fields: [userId], references: [id])
+  userId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Answer {
+  id String @id @default(uuid())
+  answer String @db.Text
+
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([problemId])
+}
+
+model Category {
+  id String @id @default(uuid())
+  name String @db.Text
+
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([problemId])
+}
+
+model Activity {
+  id String @id @default(uuid())
+  status ProblemStatus @default(UNVIEWED)
+
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([problemId])
+}
+
+model Leaderboard {
+  id String @id @default(uuid())
+  successCount Int
+  failureCount Int
+  
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum ProblemDifficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum ProblemStatus {
+  UNVIEWED
+  VIEWED
+  SUCCESS
+  FAILED
+}
+
+enum ProblemType {
+  TEXT
+  IMAGE
+  VIDEO
+  LATEX
+  MARKDOWN
 }
