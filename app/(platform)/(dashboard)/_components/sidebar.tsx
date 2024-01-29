@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { currentUser } from "@clerk/nextjs";
-import { Activity, Grip, Trophy, Users } from "lucide-react";
+import { Activity, Grip, PlusCircle, Trophy, User, Users } from "lucide-react";
 import Link from "next/link";
 
 const routes = [
@@ -10,9 +10,9 @@ const routes = [
         label: "Problems"
     },
     {
-        href: "/users",
-        icon: <Users className="h-4 w-4 mr-2"/>,
-        label: "Users"
+        href: "/post",
+        icon: <PlusCircle className="h-4 w-4 mr-2"/>,
+        label: "Post"
     },
     {
         href: "/activity",
@@ -23,24 +23,37 @@ const routes = [
         href: "/leaderboard",
         icon:  <Trophy className="h-4 w-4 mr-2"/>,
         label: "Leaderboard"
-    }
+    },
+    {
+        href: "/users",
+        icon: <Users className="h-4 w-4 mr-2"/>,
+        label: "Users"
+    },
+    {
+        href: "/profile",
+        icon: <User className="h-4 w-4 mr-2"/>,
+        label: "Profile"
+    },
 ];
 
 export const Sidebar = async () => {
     const user = await currentUser();
 
     return (
-        <aside className="fixed left-0 h-full w-52 flex flex-col border-r z-50 shadow-sm p-6 space-y-2 ">
-            <h1 className="text-md font-bold leading-none mb-4 text-muted-foreground">Hello {user?.firstName}</h1>
-            {
-                routes.map(route => (
-                    <Link key={route.href} href={route.href}>
-                        <div className="flex items-center justify-between text-sm text-muted-foreground">
-                            <div className="flex">{route.icon} {route.label}</div>
-                        </div>
-                    </Link>
-                ))
-            }
+        <aside className="hidden md:block fixed left-0 h-full w-60 border-r z-50 shadow-sm p-6 space-y-4">
+            <h1 className="text-xl font-bold">Hello {user?.firstName}</h1>
+            <div className="flex flex-col justify-center space-y-3 pl-4">
+                {
+                    routes.map(route => (
+                        <Link key={route.href} href={route.href}>
+                            <div className="flex items-center justify-start">
+                                <div>{route.icon}</div>
+                                <span className="text-gray-500 text-sm">{route.label}</span>
+                            </div>
+                        </Link>
+                    ))
+                }
+            </div>
             <Separator className="my-4" />
         </aside>
     );
