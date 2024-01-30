@@ -46,20 +46,6 @@ export const Editor = () => {
                     }}
                     preview='edit'
                 />
-                <MDEditor 
-                    value={value} 
-                    style={{ whiteSpace: 'pre-wrap' }}
-                    preview='preview'
-                    hideToolbar
-                    textareaProps={{
-                        placeholder: 'Please enter Markdown text',
-                    }}
-                    previewOptions={{
-                        components: {
-                            code: {transformLatex},
-                        },
-                    }}
-                />
             </div>
             <div className='hidden md:block'>
                 <MDEditor
@@ -70,6 +56,12 @@ export const Editor = () => {
                         placeholder: 'Please enter Markdown text',
                     }}
                     preview='live'
+                    height={400}
+                    previewOptions={{
+                        components: {
+                          code: transformLatex,
+                        },
+                      }}
                 />
             </div>
         </div>
