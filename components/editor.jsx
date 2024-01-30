@@ -44,7 +44,12 @@ export const Editor = () => {
                     textareaProps={{
                         placeholder: 'Please enter Markdown text',
                     }}
-                    preview='edit'
+                    preview='live'
+                    previewOptions={{
+                        components: {
+                          code: transformLatex,
+                        },
+                    }}
                 />
             </div>
             <div className='hidden md:block'>
