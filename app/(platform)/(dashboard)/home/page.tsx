@@ -17,7 +17,7 @@ const HomePage = () => {
                     <div className="w-full mb-4">
                         <h1 className="text-2xl md:text-3xl font-bold">Home</h1>
                     </div>
-                    <div className="grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+                    <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                     {
                         routes.map(route => (
                             <Link key={route.href} href={route.href} className="hover:bg-gray-200 rounded-md">
