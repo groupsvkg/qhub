@@ -17,12 +17,12 @@ const HomePage = () => {
                     <div className="w-full mb-4">
                         <h1 className="text-2xl md:text-3xl font-bold">Home</h1>
                     </div>
-                    <div className="container mx-auto grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+                    <div className="grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
                     {
                         routes.map(route => (
-                            <Link key={route.href} href={route.href} className="hover:bg-gray-200">
+                            <Link key={route.href} href={route.href} className="hover:bg-gray-200 rounded-md">
                                 <div className={cn(
-                                    "flex flex-col items-center justify-center p-4 space-y-4 shadow-md border rounded-md",
+                                    "flex flex-col items-center justify-center p-4 space-y-2 shadow-md border rounded-md",
                                     pathname === route.href && "border-l-2 border-purple-300"
                                     )}>
                                     <div>{route.icon}</div>
