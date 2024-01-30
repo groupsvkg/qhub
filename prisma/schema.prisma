@@ -29,9 +29,11 @@ model Problem {
   title String @db.Text
   description String? @db.Text
   url String? @db.Text
+  likes Int @db.UnsignedInt @default(0)
+  dislikes Int @db.UnsignedInt @default(0)
 
-  type ProblemType @default(TEXT)
-  difficulty ProblemDifficulty @default(EASY)
+  type Type @default(TEXT)
+  difficulty Difficulty @default(EASY)
 
   category Category[]
   answer Answer[]
@@ -74,7 +76,8 @@ model Category {
 
 model Activity {
   id String @id @default(uuid())
-  status ProblemStatus @default(UNVIEWED)
+  action Action
+  status Status
 
   user User @relation(fields: [userId], references: [id])
   userId String
@@ -90,8 +93,8 @@ model Activity {
 
 model Leaderboard {
   id String @id @default(uuid())
-  successCount Int
-  failureCount Int
+  successCount Int @db.UnsignedInt @default(0)
+  failureCount Int @db.UnsignedInt @default(0)
   
   user User @relation(fields: [userId], references: [id])
   userId String @unique
@@ -100,23 +103,32 @@ model Leaderboard {
   updatedAt DateTime @updatedAt
 }
 
-enum ProblemDifficulty {
+enum Difficulty {
   EASY
   MEDIUM
   HARD
 }
 
-enum ProblemStatus {
-  UNVIEWED
+enum Action {
+  CREATED
+  DELETED
+  UPDATED
   VIEWED
+  LIKED
+}
+
+enum Status {
+  NOT_APPLICABLE
+  UNSOLVED
   SUCCESS
   FAILED
 }
 
-enum ProblemType {
+enum Type {
   TEXT
   IMAGE
   VIDEO
+  SVG
   LATEX
   MARKDOWN
 }
