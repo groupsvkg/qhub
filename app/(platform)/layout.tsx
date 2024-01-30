@@ -7,7 +7,9 @@ const PlatformLayout = ({
 }) => {
     return (
         <ClerkProvider>
-            {children}
+            <div className="h-full">
+                {children}
+            </div>
         </ClerkProvider>
     )
 };

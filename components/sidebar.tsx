@@ -3,42 +3,9 @@
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
-import { Activity, Grip, PlusCircle, Trophy, User, Users } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const routes = [
-    {
-        href: "/problems",
-        icon: <Grip className="h-4 w-4 mr-2"/>,
-        label: "Problems"
-    },
-    {
-        href: "/post",
-        icon: <PlusCircle className="h-4 w-4 mr-2"/>,
-        label: "Post"
-    },
-    {
-        href: "/activity",
-        icon:  <Activity className="h-4 w-4 mr-2"/>,
-        label: "Activity"
-    },
-    {
-        href: "/leaderboard",
-        icon:  <Trophy className="h-4 w-4 mr-2"/>,
-        label: "Leaderboard"
-    },
-    {
-        href: "/users",
-        icon: <Users className="h-4 w-4 mr-2"/>,
-        label: "Users"
-    },
-    {
-        href: "/profile",
-        icon: <User className="h-4 w-4 mr-2"/>,
-        label: "Profile"
-    },
-];
+import {routes} from "@/config/routes";
 
 export const Sidebar = () => {
     const { user } = useUser();

@@ -27,6 +27,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### Home Page
 
+- Implement home page :hourglass_flowing_sand:
+
 ### Problems Page
 
 ### Post Page
