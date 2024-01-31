@@ -16,7 +16,8 @@ model User {
   externalUserId String @unique
   bio String? @db.Text
 
-  problem Problem[]
+  problems Problem[]
+  activities Activity[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -30,6 +31,8 @@ model Problem {
   dislikes Int @db.UnsignedInt @default(0)
   difficulty Difficulty @default(EASY)
 
+  activities Activity[]
+
   user User @relation(fields: [userId], references: [id])
   userId String
 
@@ -37,6 +40,23 @@ model Problem {
   updatedAt DateTime @updatedAt
 
   @@index([userId])
+}
+
+model Activity {
+  id String @id @default(uuid())
+  action Action
+
+  user User @relation(fields: [userId], references: [id])
+  userId String
+
+  problem Problem @relation(fields: [problemId], references: [id])
+  problemId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([problemId])
 }
 
 enum Difficulty {
@@ -50,7 +70,10 @@ enum Action {
   DELETED
   UPDATED
   VIEWED
+  SOLVED
+  FAILED
   LIKED
+  UNLIKED
 }
 
 enum Status {
