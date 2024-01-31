@@ -17,8 +17,6 @@ model User {
   bio String? @db.Text
 
   problem Problem[]
-  activity Activity[]
-  leaderboard Leaderboard?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -26,19 +24,12 @@ model User {
 
 model Problem {
   id String @id @default(uuid())
-  title String @db.Text
-  description String? @db.Text
-  url String? @db.Text
+  description String @db.Text
+  answer String @db.Text
   likes Int @db.UnsignedInt @default(0)
   dislikes Int @db.UnsignedInt @default(0)
-
-  type Type @default(TEXT)
   difficulty Difficulty @default(EASY)
 
-  category Category[]
-  answer Answer[]
-  activity Activity[]
-
   user User @relation(fields: [userId], references: [id])
   userId String
 
@@ -46,61 +37,6 @@ model Problem {
   updatedAt DateTime @updatedAt
 
   @@index([userId])
-}
-
-model Answer {
-  id String @id @default(uuid())
-  answer String @db.Text
-
-  problem Problem @relation(fields: [problemId], references: [id])
-  problemId String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([problemId])
-}
-
-model Category {
-  id String @id @default(uuid())
-  name String @db.Text
-
-  problem Problem @relation(fields: [problemId], references: [id])
-  problemId String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([problemId])
-}
-
-model Activity {
-  id String @id @default(uuid())
-  action Action
-  status Status
-
-  user User @relation(fields: [userId], references: [id])
-  userId String
-  problem Problem @relation(fields: [problemId], references: [id])
-  problemId String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([userId])
-  @@index([problemId])
-}
-
-model Leaderboard {
-  id String @id @default(uuid())
-  successCount Int @db.UnsignedInt @default(0)
-  failureCount Int @db.UnsignedInt @default(0)
-  
-  user User @relation(fields: [userId], references: [id])
-  userId String @unique
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 enum Difficulty {
@@ -122,13 +58,4 @@ enum Status {
   UNSOLVED
   SUCCESS
   FAILED
-}
-
-enum Type {
-  TEXT
-  IMAGE
-  VIDEO
-  SVG
-  LATEX
-  MARKDOWN
 }

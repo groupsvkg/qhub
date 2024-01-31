@@ -43,12 +43,13 @@ export const Editor = () => {
                     onChange={setValue}
                     textareaProps={{
                         placeholder: 'Please enter Markdown text',
+                        name: "description"
                     }}
                     preview='live'
                     previewOptions={{
                         components: {
                           code: transformLatex,
-                        },
+                        }
                     }}
                 />
             </div>
@@ -59,6 +60,7 @@ export const Editor = () => {
                     onChange={setValue}
                     textareaProps={{
                         placeholder: 'Please enter Markdown text',
+                        name: "description"
                     }}
                     preview='live'
                     height={400}

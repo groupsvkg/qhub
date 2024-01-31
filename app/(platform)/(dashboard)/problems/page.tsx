@@ -5,7 +5,7 @@ const ProblemsPage = () => {
         <div className="pt-16">
             <Sidebar />
             <div className="md:pl-60 h-full ">
-                Post Page
+                Problems Page
             </div>
         </div>
     );

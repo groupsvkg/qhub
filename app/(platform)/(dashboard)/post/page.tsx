@@ -1,10 +1,7 @@
 import { Sidebar } from "@/components/sidebar";
 
-import { Editor } from "@/components/editor"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { PostForm } from "./_components/post-form";
 
 const PostPage = () => {
     return (
@@ -18,19 +15,7 @@ const PostPage = () => {
                             <CardDescription>Post a problem related to any topic</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <form action="" className="space-y-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="description">Question Description</Label>
-                                    <Editor />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="answer">Answer</Label>
-                                    <Input id="answer" placeholder="Enter your answer or answers, separated by commas."/>
-                                </div>
-                                <Button className="w-full" type="submit">
-                                    Post Problem
-                                </Button>
-                            </form>
+                            <PostForm />
                         </CardContent>
                     </Card>
                 </div>

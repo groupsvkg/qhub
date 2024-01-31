@@ -33,6 +33,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### Post Page
 
+- Implement post page :heavy_check_mark:
+- Implement server action to create problem.
+- Implement problem service.
+
 ### Activity Page
 
 ### Leaderboard Page
@@ -45,9 +49,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Data Model
 
-- Identify entities involved :hourglass_flowing_sand:
-- Update entities and relationship in `schema.prisma` :hourglass_flowing_sand:
-- Generate and push the changes. 
+- Identify entities involved :heavy_check_mark:
+- Update entities and relationship in `schema.prisma` :heavy_check_mark:
+- Generate and push the changes. :heavy_check_mark:
 
 
 ## Getting Started
