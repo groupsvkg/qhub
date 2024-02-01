@@ -20,3 +20,17 @@ export const createProblem = async (description: string, answer: string): Proble
 
     return problem;
 }
+
+export const getProblem = async (problemId: string) => {
+    const problem = await db.problem.findUnique({
+        where: {
+            id: problemId
+        },
+        include: {
+            activities: true,
+            user: true
+        }
+    });
+
+    return problem;
+}

@@ -35,6 +35,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### Problems Page
 
+- Implement problem details page. :hourglass_flowing_sand:
+
 ### Post Page
 
 - Implement post page. :heavy_check_mark:
@@ -57,6 +59,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Identify entities involved :heavy_check_mark:
 - Update entities and relationship in `schema.prisma` :heavy_check_mark:
 - Generate and push the changes. :heavy_check_mark:
+
+## TODO
+
+- Update clerk endpoint for production deployment.
 
 
 ## Getting Started

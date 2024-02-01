@@ -15,7 +15,7 @@ const ProfilePage = async () => {
     return (
         <div className="pt-16">
             <Sidebar />
-            <div className="md:pl-60 h-full ">
+            <div className="md:pl-60">
                 {user && <Profile user={user}/>}
             </div>
         </div>
