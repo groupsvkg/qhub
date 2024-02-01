@@ -25,6 +25,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Tasks
 
+### Loading Page
+- Implement loading page :heavy_check_mark:
+  - TODO: improve loading UI using `Skeleton`
+
 ### Home Page
 
 - Implement home page :hourglass_flowing_sand:
@@ -33,9 +37,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### Post Page
 
-- Implement post page :heavy_check_mark:
-- Implement server action to create problem.
-- Implement problem service.
+- Implement post page. :heavy_check_mark:
+- Implement server action to create problem. :heavy_check_mark:
+- Implement `problem`` service. :heavy_check_mark:
+- Implement `activity` service. :heavy_check_mark:
 
 ### Activity Page
 
