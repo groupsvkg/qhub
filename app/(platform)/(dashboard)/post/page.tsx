@@ -2,6 +2,7 @@ import { Sidebar } from "@/components/sidebar";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PostForm } from "./_components/post-form";
+import Link from "next/link";
 
 const PostPage = () => {
     return (
@@ -12,7 +13,10 @@ const PostPage = () => {
                     <Card className="w-full md:max-w-4xl">
                         <CardHeader>
                             <CardTitle className="text-2xl">Post a Problem</CardTitle>
-                            <CardDescription>Post a problem related to any topic</CardDescription>
+                            <CardDescription>
+                                Post a problem related to any topic (
+                                <Link className="text-blue-400 underline p-1" href={"https://www.markdownguide.org/cheat-sheet/"} rel="noopener noreferrer" target="_blank" prefetch={false}>markdown help</Link>)
+                            </CardDescription>
                         </CardHeader>
                         <CardContent>
                             <PostForm />
