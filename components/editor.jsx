@@ -42,7 +42,7 @@ export const Editor = () => {
                     value={value}
                     onChange={setValue}
                     textareaProps={{
-                        placeholder: 'Please enter Markdown text',
+                        placeholder: 'Enter markdown text',
                         name: "description"
                     }}
                     preview='live'
@@ -59,7 +59,7 @@ export const Editor = () => {
                     value={value}
                     onChange={setValue}
                     textareaProps={{
-                        placeholder: 'Please enter Markdown text',
+                        placeholder: 'Enter markdown text',
                         name: "description"
                     }}
                     preview='live'
