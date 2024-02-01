@@ -11,7 +11,7 @@ export const Problem = async ({problemId}: ProblemProps) => {
     const problem = await getProblem(problemId);
 
     return (
-        <Card className="md:max-w-4xl">
+        <Card className="w-full md:max-w-4xl">
             <CardHeader>
                 <CardTitle className="text-2xl text-gray-500">
                     Created by <span className="">{problem.user.firstName}</span>
