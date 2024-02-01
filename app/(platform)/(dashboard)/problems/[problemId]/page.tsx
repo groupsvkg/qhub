@@ -7,7 +7,7 @@ const ProblemPage = ({params}: { params: { problemId: string }}) => {
         <div className="pt-16">
             <Sidebar />
             <div className="md:pl-60">
-            <div className="flex flex-col items-center justify-center pt-1">
+            <div className="flex flex-col items-center justify-center p-4">
                     <Problem problemId={params.problemId}/>
                 </div>
             </div>

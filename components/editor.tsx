@@ -6,10 +6,12 @@ import katex from 'katex';
 import { getCodeString } from 'rehype-rewrite';
 import MDEditor from "@uiw/react-md-editor";
 
+// @ts-ignore
 const transformLatex = ({ inline, children = [], className, ...props }) => {
     const txt = children[0] || '';
     if (inline) {
       if (typeof txt === 'string' && /^\$\$(.*)\$\$/.test(txt)) {
+        // @ts-ignore
         const html = katex.renderToString(txt.replace(/^\$\$(.*)\$\$/, '$1'), {
           throwOnError: false,
         });
@@ -40,23 +42,7 @@ export const Editor = () => {
                 <MDEditor
                     id="description"
                     value={value}
-                    onChange={setValue}
-                    textareaProps={{
-                        placeholder: 'Enter markdown text',
-                        name: "description"
-                    }}
-                    preview='live'
-                    previewOptions={{
-                        components: {
-                          code: transformLatex,
-                        }
-                    }}
-                />
-            </div>
-            <div className='hidden md:block'>
-                <MDEditor
-                    id="description"
-                    value={value}
+                    // @ts-ignore
                     onChange={setValue}
                     textareaProps={{
                         placeholder: 'Enter markdown text',
@@ -66,6 +52,27 @@ export const Editor = () => {
                     height={400}
                     previewOptions={{
                         components: {
+                          // @ts-ignore
+                          code: transformLatex,
+                        }
+                    }}
+                />
+            </div>
+            <div className='hidden md:block'>
+                <MDEditor
+                    id="description"
+                    value={value}
+                    // @ts-ignore
+                    onChange={setValue}
+                    textareaProps={{
+                        placeholder: 'Enter markdown text',
+                        name: "description"
+                    }}
+                    preview='live'
+                    height={400}
+                    previewOptions={{
+                        components: {
+                          // @ts-ignore
                           code: transformLatex,
                         },
                       }}
