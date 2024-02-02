@@ -37,7 +37,7 @@ export const Editor = () => {
     const [value, setValue] = useState("");
     
     return (
-        <div className="container">
+        <div className="container p-0">
             <div className='md:hidden'>
                 <MDEditor
                     id="description"
@@ -49,7 +49,7 @@ export const Editor = () => {
                         name: "description"
                     }}
                     preview='live'
-                    height={400}
+                    height={200}
                     previewOptions={{
                         components: {
                           // @ts-ignore
