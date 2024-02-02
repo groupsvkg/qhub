@@ -35,6 +35,20 @@ export const PostForm = () => {
 
         }} className="space-y-6">
             <div className="space-y-2">
+                <Label htmlFor="category">Category</Label>
+                <Input 
+                    id="category" 
+                    name="category" 
+                    placeholder="Enter problem category" />
+            </div>
+            <div className="space-y-2">
+                <Label htmlFor="title">Title</Label>
+                <Input 
+                    id="title" 
+                    name="title" 
+                    placeholder="Enter problem title" />
+            </div>
+            <div className="space-y-2">
                 <Label htmlFor="description">Question Description</Label>
                 <Editor />
             </div>

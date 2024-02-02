@@ -11,6 +11,7 @@ export const Problem = async ({problemId}: ProblemProps) => {
 
     return (
         <div className="w-full md:max-w-4xl">
+            <h1 className="text-3xl font-bold">{problem?.title}</h1>
             <ProblemPreview problem={problem}/>
         </div>
     )
