@@ -69,7 +69,7 @@ export const Editor = () => {
                         name: "description"
                     }}
                     preview='live'
-                    height={400}
+                    height={350}
                     previewOptions={{
                         components: {
                           // @ts-ignore
