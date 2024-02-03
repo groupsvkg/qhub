@@ -1,7 +1,7 @@
 import { Sidebar } from "@/components/sidebar";
 import { Separator } from "@/components/ui/separator";
 import { db } from "@/lib/db";
-import { ThumbsDown, ThumbsUp } from "lucide-react";
+import { ArrowDown, ArrowUp, ThumbsDown, ThumbsUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -40,12 +40,8 @@ const ProblemsPage = async () => {
                                         </div>
                                     </div>
                                     <div className="flex items-center justify-start text-xs text-gray-500 gap-x-1 pt-1">
-                                        <div>
-                                            {problem.likes} likes
-                                        </div>
-                                        <div>
-                                            {problem.dislikes} dislikes
-                                        </div>
+                                        {problem.likes} <ArrowUp className="h-4 w-4 text-green-500"/>
+                                        {problem.dislikes} <ArrowDown className="h-4 w-4 text-red-500"/>
                                     </div>
                                 </div>
                             </Link>
