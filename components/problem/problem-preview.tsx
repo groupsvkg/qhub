@@ -34,7 +34,6 @@ const transformLatex = ({ inline, children = [], className, ...props }) => {
 
 export const ProblemPreview = ({problem}: {problem: any}) => {
     return (
-      <div className='flex items-center justify-center'>
         <MDEditor.Markdown
           source={problem.description}
           style={{whiteSpace: "pre-wrap"}}
@@ -43,7 +42,6 @@ export const ProblemPreview = ({problem}: {problem: any}) => {
             code: transformLatex
           }}
         />
-      </div>
     );
 };
 

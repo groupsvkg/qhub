@@ -4,10 +4,10 @@ import { Sidebar } from "@/components/sidebar";
 const ProblemPage = ({params}: { params: { problemId: string }}) => {
 
     return (
-        <div className="pt-16">
+        <div className="pt-16 h-full">
             <Sidebar />
-            <div className="md:pl-60">
-            <div className="flex flex-col items-center justify-center p-4">
+            <div className="md:pl-60 h-full">
+                <div className="h-full flex flex-col items-center justify-start p-4">
                     <Problem problemId={params.problemId}/>
                 </div>
             </div>
