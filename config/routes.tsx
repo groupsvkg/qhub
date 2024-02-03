@@ -1,7 +1,12 @@
-import { Activity, Grip, PlusCircle, Trophy, User, Users } from "lucide-react";
+import { Activity, Grip, Home, PlusCircle, Trophy, User, Users } from "lucide-react";
 
 
 export const routes = [
+    {
+        href: "/",
+        icon: <Home className="h-4 w-4 mr-2"/>,
+        label: "Home"
+    },
     {
         href: "/problems",
         icon: <Grip className="h-4 w-4 mr-2"/>,
