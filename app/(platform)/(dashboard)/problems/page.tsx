@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const ProblemsPage = async () => {
     const problems = await db.problem.findMany({
-        take: 10,
+        take: 50,
         include: {
             user: true
         }
