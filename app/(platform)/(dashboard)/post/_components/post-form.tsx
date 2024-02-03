@@ -49,7 +49,7 @@ export const PostForm = () => {
                     placeholder="Enter problem title" />
             </div>
             <div className="space-y-2">
-                <Label htmlFor="description">Question Description</Label>
+                <Label htmlFor="description">Description</Label>
                 <Editor />
             </div>
             <div className="space-y-2">

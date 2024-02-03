@@ -1,5 +1,8 @@
 import { Sidebar } from "@/components/sidebar";
 import { db } from "@/lib/db";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 const ProblemsPage = async () => {
     const problems = await db.problem.findMany({
@@ -9,21 +12,36 @@ const ProblemsPage = async () => {
         }
     })
 
-    console.log(problems);
-    
     return (
         <div className="pt-16 h-full">
             <Sidebar />
-            <div className="md:pl-60 h-full bg-red-100">
-                <div className="mx-auto bg-green-200 max-w-4xl">
-                    <h1 className="text-2xl font-bold mb-4">Problems</h1>
-                    <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                        <div>Problem 1</div>
-                        <div>Problem 2</div>
-                        <div>Problem 3</div>
-                        <div>Problem 4</div>
-                        <div>Problem 5</div>
-                        <div>Problem 6</div>
+            <div className="md:pl-60 h-full">
+                <div className="h-full flex flex-col m-6 items-center justify-start">
+                    <div className="w-full mb-4">
+                        <h1 className="text-2xl md:text-3xl font-bold">Problems</h1>
+                    </div>
+                    <div className="grid gap-2 grid-cols-2 md:grid-cols-4 lg:gricol6">
+                    {
+                        problems.map(problem => (
+                            <Link key={problem.id} href={`/problems/${problem.id}`} className="hover:bg-gray-200 rounded-md">
+                                <div className="p-2 space-y-2 shadow-md border rounded-md">
+                                    <div className="flex flex-col md:flex-row items-center justify-start">
+                                        <Image 
+                                                src={problem.user.imageUrl}
+                                                height={50}
+                                                width={50}
+                                                alt="Problem creator"
+                                                className="rounded-full"
+                                            />
+                                        <div className="flex flex-col ml-2 text-ellipsis overflow-hidden">
+                                            <h1 className="text-gray-700 text-md font-semibold">{problem.category}</h1>
+                                            <p className="text-gray-500 text-sm">{problem.title}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))
+                    }
                     </div>
                 </div>
             </div>

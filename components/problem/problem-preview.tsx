@@ -3,7 +3,7 @@
 import 'katex/dist/katex.css';
 import katex from 'katex';
 import { getCodeString } from 'rehype-rewrite';
-import MDEditor from "@uiw/react-md-editor";
+import MDEditor, { code } from "@uiw/react-md-editor";
 
 // @ts-ignore
 const transformLatex = ({ inline, children = [], className, ...props }) => {
@@ -34,18 +34,16 @@ const transformLatex = ({ inline, children = [], className, ...props }) => {
 
 export const ProblemPreview = ({problem}: {problem: any}) => {
     return (
-        <MDEditor
-            value={problem.description}
-            preview='preview'
-            height={400}
-            hideToolbar
-            previewOptions={{
-                components: {
-                    // @ts-ignore
-                  code: transformLatex,
-                }
-            }}
+      <div className='flex items-center justify-center'>
+        <MDEditor.Markdown
+          source={problem.description}
+          style={{whiteSpace: "pre-wrap"}}
+          components={{
+            // @ts-ignore
+            code: transformLatex
+          }}
         />
+      </div>
     );
 };
 
