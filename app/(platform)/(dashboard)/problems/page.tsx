@@ -1,5 +1,4 @@
 import { Sidebar } from "@/components/sidebar";
-import { Separator } from "@/components/ui/separator";
 import { db } from "@/lib/db";
 import { ArrowDown, ArrowUp, ThumbsDown, ThumbsUp } from "lucide-react";
 import Image from "next/image";
@@ -14,7 +13,7 @@ const ProblemsPage = async () => {
     })
 
     return (
-        <div className="pt-16 h-full">
+        <div className="pt-16">
             <Sidebar />
             <div className="md:pl-60 h-full">
                 <div className="h-full flex flex-col m-6 items-center justify-start">

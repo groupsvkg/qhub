@@ -10,7 +10,7 @@ const HomePage = () => {
     const pathname = usePathname();
     
     return (
-        <div className="pt-16 h-full">
+        <div className="pt-16">
             <Sidebar />
             <div className="md:pl-60 h-full">
                 <div className="h-full m-6 flex flex-col items-center justify-start">
