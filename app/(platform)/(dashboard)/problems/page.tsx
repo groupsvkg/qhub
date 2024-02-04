@@ -20,7 +20,7 @@ const ProblemsPage = async () => {
                     <div className="w-full mb-4">
                         <h1 className="text-2xl md:text-3xl font-bold">Problems</h1>
                     </div>
-                    <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:gricol6">
+                    <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                     {
                         problems.map(problem => (
                             <Link key={problem.id} href={`/problems/${problem.id}`} className="hover:bg-gray-200 rounded-md">
