@@ -16,7 +16,7 @@ export const createProblem = async (category: string, title: string, description
         }
     });
 
-    if(problem) {
+    if (problem) {
         await createActivity(self, problem);
     }
 

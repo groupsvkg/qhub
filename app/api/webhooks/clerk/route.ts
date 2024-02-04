@@ -5,7 +5,7 @@ import { db } from '@/lib/db'
 
 export async function POST(req: Request) {
   const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET
- 
+
   if (!WEBHOOK_SECRET) {
     throw new Error('Please add CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local')
   }
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
   const svix_timestamp = headerPayload.get("svix-timestamp");
   const svix_signature = headerPayload.get("svix-signature");
 
-   // If there are no headers, error out
+  // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
     return new Response('Error occured -- no svix headers', {
       status: 400
@@ -47,37 +47,37 @@ export async function POST(req: Request) {
 
   const eventType = evt.type;
 
-  if(eventType === "user.created") {
+  if (eventType === "user.created") {
     await db.user.create({
-        data: {
-            externalUserId: payload.data.id,
-            firstName: payload.data.first_name,
-            lastName: payload.data.last_name,
-            imageUrl: payload.data.image_url
-        }
+      data: {
+        externalUserId: payload.data.id,
+        firstName: payload.data.first_name,
+        lastName: payload.data.last_name,
+        imageUrl: payload.data.image_url
+      }
     });
   }
 
-  if(eventType === "user.updated") {
+  if (eventType === "user.updated") {
     await db.user.update({
-        where: {
-            externalUserId: payload.data.id,
-        },
-        data: {
-            firstName: payload.data.first_name,
-            lastName: payload.data.last_name,
-            imageUrl: payload.data.image_url,
-        }
+      where: {
+        externalUserId: payload.data.id,
+      },
+      data: {
+        firstName: payload.data.first_name,
+        lastName: payload.data.last_name,
+        imageUrl: payload.data.image_url,
+      }
     });
   }
 
-  if(eventType === "user.deleted") {
+  if (eventType === "user.deleted") {
     await db.user.delete({
-        where: {
-            externalUserId: payload.data.id,
-        },
+      where: {
+        externalUserId: payload.data.id,
+      },
     });
   }
- 
+
   return new Response('', { status: 200 })
 }

@@ -6,7 +6,7 @@ import { Profile } from "@/components/profile";
 const ProfilePage = async () => {
     const externalUser = await currentUser();
 
-    if(!externalUser || !externalUser.id) {
+    if (!externalUser || !externalUser.id) {
         throw new Error("Unauthorized");
     }
 
@@ -16,7 +16,7 @@ const ProfilePage = async () => {
         <div className="pt-16">
             <Sidebar />
             <div className="md:pl-60">
-                {user && <Profile user={user}/>}
+                {user && <Profile user={user} />}
             </div>
         </div>
     );

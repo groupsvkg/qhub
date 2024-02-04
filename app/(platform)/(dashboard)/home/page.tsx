@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 
 const HomePage = () => {
     const pathname = usePathname();
-    
+
     return (
         <div className="pt-16">
             <Sidebar />
@@ -18,19 +18,19 @@ const HomePage = () => {
                         <h1 className="text-2xl md:text-3xl font-bold">Home</h1>
                     </div>
                     <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                    {
-                        routes.map(route => (
-                            route.href !== "/" && <Link key={route.href} href={route.href} className="hover:bg-gray-200 rounded-md">
-                                <div className={cn(
-                                    "flex flex-col items-center justify-center p-4 space-y-2 shadow-md border rounded-md",
-                                    pathname === route.href && "border-l-2 border-purple-300"
+                        {
+                            routes.map(route => (
+                                route.href !== "/" && <Link key={route.href} href={route.href} className="hover:bg-gray-200 rounded-md">
+                                    <div className={cn(
+                                        "flex flex-col items-center justify-center p-4 space-y-2 shadow-md border rounded-md",
+                                        pathname === route.href && "border-l-2 border-purple-300"
                                     )}>
-                                    <div>{route.icon}</div>
-                                    <span className="text-gray-500 text-sm">{route.label}</span>
-                                </div>
-                            </Link>
-                        ))
-                    }
+                                        <div>{route.icon}</div>
+                                        <span className="text-gray-500 text-sm">{route.label}</span>
+                                    </div>
+                                </Link>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

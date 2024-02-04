@@ -14,38 +14,38 @@ export const PostForm = () => {
     const ref = useRef<HTMLFormElement>(null);
 
     return (
-        <form 
+        <form
             ref={ref}
             action={async (formData: FormData) => {
-            const problem = await onCreate(formData);
+                const problem = await onCreate(formData);
 
-            if(!problem){
+                if (!problem) {
+                    toast({
+                        title: "Failed to create problem",
+                        variant: "destructive"
+                    });
+                    throw new Error("Somthing went wrong");
+                }
+
                 toast({
-                    title: "Failed to create problem",
-                    variant: "destructive"
-                });
-                throw new Error("Somthing went wrong");
-            }
+                    title: "Problem created successfully",
+                })
+                ref.current?.reset();
+                redirect(`/problems/${problem.id}`);
 
-            toast({
-                title: "Problem created successfully",
-            })
-            ref.current?.reset();
-            redirect(`/problems/${problem.id}`);
-
-        }} className="space-y-6">
+            }} className="space-y-6">
             <div className="space-y-2">
                 <Label htmlFor="category">Category</Label>
-                <Input 
-                    id="category" 
-                    name="category" 
+                <Input
+                    id="category"
+                    name="category"
                     placeholder="Enter problem category" />
             </div>
             <div className="space-y-2">
                 <Label htmlFor="title">Title</Label>
-                <Input 
-                    id="title" 
-                    name="title" 
+                <Input
+                    id="title"
+                    name="title"
                     placeholder="Enter problem title" />
             </div>
             <div className="space-y-2">
@@ -54,9 +54,9 @@ export const PostForm = () => {
             </div>
             <div className="space-y-2">
                 <Label htmlFor="answer">Answer</Label>
-                <Input 
-                    id="answer" 
-                    name="answer" 
+                <Input
+                    id="answer"
+                    name="answer"
                     placeholder="Enter your answer or answers, separated by commas." />
             </div>
             <SubmitButton />

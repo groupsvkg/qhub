@@ -11,7 +11,7 @@ export const Logo = () => {
     return (
         <Link href="/">
             <div className="hover:opacity-75 transition items-center space-x-1 md:flex ml-1">
-                <Image 
+                <Image
                     src="/logo.svg"
                     alt="Logo"
                     height={30}

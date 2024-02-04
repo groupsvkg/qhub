@@ -12,7 +12,7 @@ export const Navbar = () => {
                 <Logo />
             </div>
             <div className="flex items-center justify-center">
-                <UserButton afterSignOutUrl="/"/>
+                <UserButton afterSignOutUrl="/" />
             </div>
         </nav>
     )
