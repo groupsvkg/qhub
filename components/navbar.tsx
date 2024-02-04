@@ -6,7 +6,7 @@ export const Navbar = () => {
     return (
         <nav className="fixed top-0 border-b px-2 lg:px-4 h-16 w-full z-50 shadow-sm flex items-center justify-between bg-white">
             <div className="flex items-center justify-center">
-                <div className="md:hidden">
+                <div className="hidden">
                     <Menu />
                 </div>
                 <Logo />

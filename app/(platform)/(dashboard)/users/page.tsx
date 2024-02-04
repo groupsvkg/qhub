@@ -36,7 +36,7 @@ const UsersPage = async () => {
                                                 alt="Problem creator"
                                                 className="rounded-full"
                                             />
-                                        <div className="flex flex-col ml-1 text-ellipsis overflow-hidden">
+                                        <div className="flex flex-col ml-1 text-ellipsis overflow-hidden tracking-tighter">
                                             <h1 className="text-gray-700 text-md font-semibold">{user.firstName + " " + user.lastName}</h1>
                                             <p className="text-gray-500 text-sm">{user.bio}</p>
                                         </div>
