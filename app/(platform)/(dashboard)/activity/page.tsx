@@ -1,7 +1,7 @@
 import { Sidebar } from "@/components/sidebar"
 import Link from "next/link";
 import Image from "next/image";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNowStrict } from "date-fns";
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
 
@@ -55,7 +55,7 @@ const ActivityPage = async () => {
                                         </div>
                                         <div className="flex items-center justify-start text-xs text-gray-500 gap-x-1 pt-1">
                                             <span>
-                                                {formatDistanceToNow(activity.createdAt)}
+                                                {formatDistanceToNowStrict(activity.createdAt)}
                                             </span>
                                         </div>
                                     </div>

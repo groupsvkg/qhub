@@ -10,9 +10,9 @@ export const Problem = async ({ problemId }: ProblemProps) => {
 
     return (
         <div className="w-full h-full md:max-w-4xl">
-            <h1 className="text-3xl font-semibold">{problem?.title}</h1>
             <div className="flex flex-col h-5/6">
-                <div className="flex items-center justify-center grow">
+                <div className="flex flex-col space-y-4 items-center justify-center grow">
+                    <h1 className="text-3xl font-semibold">{problem?.title}</h1>
                     <ProblemPreview problem={problem} />
                 </div>
                 <div className="mt-6 grow border-t-2 flex items-center justify-center">

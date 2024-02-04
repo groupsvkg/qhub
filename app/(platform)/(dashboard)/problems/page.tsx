@@ -1,7 +1,7 @@
 import { Sidebar } from "@/components/sidebar";
 import { db } from "@/lib/db";
-import { formatDistanceToNow } from "date-fns";
-import { ArrowDown, ArrowUp, ThumbsDown, ThumbsUp } from "lucide-react";
+import { formatDistanceToNowStrict } from "date-fns";
+import { ArrowDown, ArrowUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -43,7 +43,7 @@ const ProblemsPage = async () => {
                                             </div>
                                         </div>
                                         <div className="flex items-center justify-between text-xs text-gray-500 gap-x-1 pt-1">
-                                            {formatDistanceToNow(problem.createdAt)}
+                                            {formatDistanceToNowStrict(problem.createdAt)}
                                             <div className="flex">
                                                 {problem.likes} <ArrowUp className="h-4 w-4 text-green-500" />&nbsp;
                                                 {problem.dislikes} <ArrowDown className="h-4 w-4 text-red-500" />
