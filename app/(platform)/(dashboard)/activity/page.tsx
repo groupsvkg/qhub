@@ -48,8 +48,8 @@ const ActivityPage = async () => {
                                                 className="rounded-full"
                                             />
                                             <div className="flex flex-col ml-2 text-ellipsis overflow-hidden tracking-tighter">
-                                                <h1 className="text-gray-700 text-md font-semibold">{user.firstName + " " + user.lastName}</h1>
-                                                <p className="text-gray-500 text-sm font-semibold">{activity.problem.category}</p>
+                                                <h1 className="text-gray-600 text-md font-semibold">{user.firstName + " " + user.lastName}</h1>
+                                                <p className="text-gray-500 text-sm font-medium">{activity.problem.category}</p>
                                                 <p className="text-gray-400 text-xs mt-1">{activity.problem.title}</p>
                                             </div>
                                         </div>
