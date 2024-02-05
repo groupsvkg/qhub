@@ -5,6 +5,14 @@ const nextConfig = {
             {
                 protocol: "https",
                 hostname: "img.clerk.com"
+            },
+            {
+                protocol: "https",
+                hostname: "unsplash.com"
+            },
+            {
+                protocol: "https",
+                hostname: "youtube.com"
             }
         ]
     }
