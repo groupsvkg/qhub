@@ -38,7 +38,7 @@ const ProblemsPage = async () => {
                                                 className="rounded-full"
                                             />
                                             <div className="flex flex-col ml-2 text-ellipsis overflow-hidden tracking-tighter">
-                                                <h1 className="text-gray-700 text-md font-semibold">{problem.category}</h1>
+                                                <h1 className="text-gray-600 text-sm font-semibold">{problem.category}</h1>
                                                 <p className="text-gray-500 text-xs">{problem.title}</p>
                                             </div>
                                         </div>
