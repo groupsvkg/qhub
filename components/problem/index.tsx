@@ -17,7 +17,7 @@ export const Problem = async ({ problemId }: ProblemProps) => {
                     <ProblemPreview problem={problem} />
                 </div>
                 <div className="mt-2 border-t-2 flex items-center justify-center flex-1">
-                    <AnswerInput />
+                    <AnswerInput problemId={problemId} />
                 </div>
             </div>
         </div>

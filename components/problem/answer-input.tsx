@@ -3,16 +3,20 @@
 import { KeyboardEvent, useEffect, useState } from "react";
 import { Indicator } from "@/components/indicator";
 import { isInvalidInputChar } from "@/lib/keyboard";
+import { verifyAnswer } from "@/actions/verify-answer";
 
-export const AnswerInput = () => {
+interface AnswerInputProps {
+    problemId: string;
+}
+
+export const AnswerInput = ({ problemId }: AnswerInputProps) => {
     const [answer, setAnswer] = useState<string[]>([])
     const [isTyping, setIsTyping] = useState(false);
-    const [isEnterKey, setIsEnterKey] = useState(false);
     const [isVerifying, setIsVerifying] = useState(false);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
     useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
+        const handleKeyDown = async (event: KeyboardEvent) => {
             event.preventDefault();
 
             if (isVerifying || isCorrect) return;
@@ -22,16 +26,36 @@ export const AnswerInput = () => {
             if (isInvalidInputChar(event)) return;
 
             if (event.key === "Enter" && event.code === "Enter") {
-                setAnswer([...answer, '\u23ce']);
-                setIsCorrect(false);
+                if (answer.length === 0) {
+                    setIsTyping(false);
+                    return;
+                }
+                if (answer[answer.length - 1] === '\u23ce') return;
 
-                // TODO: verify answer and set isCorrect to true or false
+                setAnswer([...answer, '\u23ce']);
+                setIsVerifying(true);
+
+                const verify = async () => {
+                    return await verifyAnswer(problemId, answer.join(''));
+                }
+                const result = await verify();
+
+                if (result) {
+                    setIsCorrect(true);
+                } else {
+                    setIsCorrect(false);
+                }
+
+                setIsVerifying(false);
+
                 return;
             }
 
             if (event.code === "Backspace") {
+                setIsCorrect(null);
                 setAnswer(answer.slice(0, answer.length - 1));
             } else {
+                if (answer[answer.length - 1] === '\u23ce') return;
                 if (event.key.charCodeAt(0) >= 32 && event.key.charCodeAt(0) <= 126)
                     setAnswer([...answer, event.key]);
             }
@@ -42,7 +66,7 @@ export const AnswerInput = () => {
 
         // @ts-ignore
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [answer, isVerifying, isCorrect])
+    }, [answer, isVerifying, isCorrect, problemId])
 
     return (
         <div
