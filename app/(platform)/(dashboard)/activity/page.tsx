@@ -4,6 +4,7 @@ import Image from "next/image";
 import { formatDistanceToNowStrict } from "date-fns";
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 const ActivityPage = async () => {
     const user = await getSelf();
@@ -20,7 +21,9 @@ const ActivityPage = async () => {
             problem: {
                 select: {
                     category: true,
-                    title: true
+                    title: true,
+                    likes: true,
+                    dislikes: true
                 }
             }
         }
@@ -48,15 +51,19 @@ const ActivityPage = async () => {
                                                 className="rounded-full"
                                             />
                                             <div className="flex flex-col ml-2 text-ellipsis overflow-hidden tracking-tighter">
-                                                <h1 className="text-gray-600 text-md font-semibold">{user.firstName + " " + user.lastName}</h1>
-                                                <p className="text-gray-500 text-sm font-medium">{activity.problem.category}</p>
+                                                {/* <h1 className="text-gray-600 text-md font-semibold">{user.firstName + " " + user.lastName}</h1> */}
+                                                <p className="text-gray-500 text-sm font-semibold">{activity.problem.category}</p>
                                                 <p className="text-gray-400 text-xs mt-1">{activity.problem.title}</p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center justify-start text-xs text-gray-500 gap-x-1 pt-1">
+                                        <div className="flex items-center justify-between text-xs text-gray-500 gap-x-1 pt-1">
                                             <span>
                                                 {formatDistanceToNowStrict(activity.createdAt)}
                                             </span>
+                                            <div className="flex">
+                                                {activity.problem.likes} <ArrowUp className="h-4 w-4 text-green-500" />&nbsp;
+                                                {activity.problem.dislikes} <ArrowDown className="h-4 w-4 text-red-500" />
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
