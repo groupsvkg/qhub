@@ -42,7 +42,7 @@ const ActivityPage = async () => {
                             activities.map(activity => (
                                 <Link key={activity.id} href={`/problems/${activity.problemId}`} className="hover:bg-gray-200 rounded-md">
                                     <div className="flex flex-col justify-between p-2 space-y-2 shadow-md border rounded-md h-full">
-                                        <div className="flex items-center justify-start">
+                                        <div className="flex items-start justify-start">
                                             <Image
                                                 src={user.imageUrl}
                                                 height={50}

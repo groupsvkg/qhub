@@ -29,7 +29,7 @@ const ProblemsPage = async () => {
                             problems.map(problem => (
                                 <Link key={problem.id} href={`/problems/${problem.id}`} className="hover:bg-gray-200 rounded-md w-full">
                                     <div className="p-2 space-y-2 shadow-md border rounded-md h-full flex flex-col justify-between">
-                                        <div className="flex items-center justify-start w-full">
+                                        <div className="flex items-start justify-start w-full">
                                             <Image
                                                 src={problem.user.imageUrl}
                                                 height={50}
