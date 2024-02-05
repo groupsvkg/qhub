@@ -24,7 +24,7 @@ export const PostForm = () => {
                         title: "Failed to create problem",
                         variant: "destructive"
                     });
-                    throw new Error("Somthing went wrong");
+                    return;
                 }
 
                 toast({
