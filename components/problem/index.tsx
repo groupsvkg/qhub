@@ -1,6 +1,7 @@
 import { getProblem } from "@/lib/problem-service";
 import ProblemPreview from "@/components/problem/problem-preview";
 import { AnswerInput } from "@/components/problem/answer-input";
+import { LikesDislikes } from "./likes-dislikes";
 
 interface ProblemProps {
     problemId: string;
@@ -11,7 +12,8 @@ export const Problem = async ({ problemId }: ProblemProps) => {
 
     return (
         <div className="w-full h-full md:max-w-4xl">
-            <div className="flex flex-col h-full">
+            <div className="relative flex flex-col h-full">
+                <LikesDislikes problemId={problemId} likes={problem!.likes} dislikes={problem!.dislikes} />
                 <div className="flex flex-col space-y-4 items-center justify-center flex-1">
                     <h1 className="text-3xl font-semibold">{problem?.title}</h1>
                     <ProblemPreview problem={problem} />

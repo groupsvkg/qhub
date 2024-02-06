@@ -75,6 +75,7 @@ enum Action {
   SOLVED
   FAILED
   LIKED
+  DISLIKED
   UNLIKED
 }
 
