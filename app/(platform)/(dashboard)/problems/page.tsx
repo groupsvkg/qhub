@@ -20,9 +20,10 @@ const ProblemsPage = async () => {
                         }
                     }
                 },
-                {
-                    userId: user.id
-                }
+                // TODO: review later
+                // {
+                //     userId: user.id
+                // }
             ]
         },
         include: {
