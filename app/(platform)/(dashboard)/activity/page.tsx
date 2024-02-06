@@ -4,7 +4,7 @@ import Image from "next/image";
 import { formatDistanceToNowStrict } from "date-fns";
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
-import { ArrowDown, ArrowUp, CheckCheck, CircleDashed, GlassWater, Hourglass, Watch, X } from "lucide-react";
+import { ArrowDown, ArrowUp, CheckCheck, CircleDashed, Eye, GlassWater, Hourglass, PlusCircle, Trash2, Watch, X } from "lucide-react";
 import { Action } from "@prisma/client";
 
 const ActivityPage = async () => {
@@ -57,7 +57,9 @@ const ActivityPage = async () => {
                                             </div>
                                             {activity.action === Action.SOLVED && <CheckCheck className="absolute right-0 w-5 h-5 text-green-600" />}
                                             {activity.action === Action.FAILED && <X className="absolute right-0 w-5 h-5 text-red-600" />}
-                                            {activity.action !== Action.SOLVED && activity.action !== Action.FAILED && <CircleDashed className="absolute right-0 w-5 h-5 text-blue-600" />}
+                                            {activity.action === Action.CREATED && <PlusCircle className="absolute right-0 w-5 h-5 text-blue-600" />}
+                                            {activity.action === Action.DELETED && <Trash2 className="absolute right-0 w-5 h-5 text-brown-600" />}
+                                            {activity.action === Action.VIEWED && <Eye className="absolute right-0 w-5 h-5 text-purple-600" />}
 
                                         </div>
                                         <div className="flex items-center justify-between text-xs text-gray-500 gap-x-1 pt-1">
