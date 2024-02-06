@@ -1,6 +1,6 @@
 import { Indicator } from "@/components/indicator";
 import { Action } from "@prisma/client";
-import { CheckCheck, Eye, PlusCircle, Trash2, X } from "lucide-react";
+import { ArrowDown, ArrowUp, CheckCheck, Eye, PlusCircle, Trash2, X } from "lucide-react";
 
 interface AnswerPreviewProps {
     input: string | null;
@@ -27,6 +27,8 @@ export const AnswerPreview = ({ input, action }: AnswerPreviewProps) => {
                     {action === Action.CREATED && <PlusCircle className="w-8 h-8 text-blue-600" />}
                     {action === Action.DELETED && <Trash2 className="w-8 h-8 text-brown-600" />}
                     {action === Action.VIEWED && <Eye className="w-8 h-8 text-purple-600" />}
+                    {action === Action.LIKED && <ArrowUp className="w-8 h-8 text-green-600" />}
+                    {action === Action.DISLIKED && <ArrowDown className="w-8 h-8 text-red-600" />}
                 </div>}
             {input && <Indicator isVerifying={false} isCorrect={action === Action.SOLVED ? true : false} />}
         </div>
