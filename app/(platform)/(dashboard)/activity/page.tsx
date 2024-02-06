@@ -6,29 +6,11 @@ import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
 import { ArrowDown, ArrowUp, CheckCheck, Eye, PlusCircle, Trash2, X } from "lucide-react";
 import { Action } from "@prisma/client";
+import { getActivitiesByUserId } from "@/lib/activity-service";
 
 const ActivityPage = async () => {
     const user = await getSelf();
-
-    const activities = await db.activity.findMany({
-        take: 50,
-        where: {
-            userId: user.id
-        },
-        orderBy: {
-            createdAt: "desc"
-        },
-        include: {
-            problem: {
-                select: {
-                    category: true,
-                    title: true,
-                    likes: true,
-                    dislikes: true
-                }
-            }
-        }
-    });
+    const activities = await getActivitiesByUserId(user.id, 50);
 
     return (
         <div className="pt-16">

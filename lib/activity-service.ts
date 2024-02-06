@@ -20,3 +20,27 @@ export const getActivity = async (activityId: string) => {
 
     return activity;
 }
+
+export const getActivitiesByUserId = async (userId: string, take: number) => {
+    const activities = await db.activity.findMany({
+        take,
+        where: {
+            userId
+        },
+        orderBy: {
+            createdAt: "desc"
+        },
+        include: {
+            problem: {
+                select: {
+                    category: true,
+                    title: true,
+                    likes: true,
+                    dislikes: true
+                }
+            }
+        }
+    });
+
+    return activities;
+}

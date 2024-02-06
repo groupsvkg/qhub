@@ -8,6 +8,7 @@ interface AnswerPreviewProps {
 }
 
 export const AnswerPreview = ({ input, action }: AnswerPreviewProps) => {
+
     return (
         <div
             className="text-gray-400 font-semibold text-4xl flex flex-wrap items-center justify-center focus:outline-none w-full"
