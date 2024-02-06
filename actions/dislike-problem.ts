@@ -7,7 +7,7 @@ import { Action } from "@prisma/client";
 export const dislikeProblem = async (problemId: string) => {
     const user = await getSelf();
 
-    const dislikesCount = await db.activity.count({
+    const likesDislikeCount = await db.activity.count({
         where: {
             userId: user.id,
             problemId,
@@ -22,7 +22,9 @@ export const dislikeProblem = async (problemId: string) => {
         }
     });
 
-    if (dislikesCount > 0) return;
+    if (likesDislikeCount > 0) {
+        return;
+    }
 
     const problem = await db.problem.update({
         where: {
