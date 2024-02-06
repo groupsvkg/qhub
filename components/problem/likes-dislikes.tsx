@@ -32,18 +32,18 @@ export const LikesDislikes = ({ problemId, likes, dislikes }: LikesDislikesProps
     }
 
     return (
-        <div className="absolute right-0 flex justify-end text-gray-500">
+        <div className={cn(
+            "flex justify-end text-gray-500"
+        )}>
             <div
-                className={cn(
-                    "flex hover:bg-gray-100 rounded-full px-2 hover:cursor-pointer",
-                )}
+                className="flex items-center justify-center hover:bg-gray-100 rounded-full px-1 hover:cursor-pointer"
                 onClick={handleLikesClick} aria-disabled={isPending}>
-                {likes} <ArrowUp className="h-6 w-6 text-green-500" />
+                {likes} <ArrowUp className={cn(
+                    "h-6 w-6 text-green-500"
+                )} />
             </div>
             <div
-                className={cn(
-                    "flex hover:bg-gray-100 rounded-full px-2 hover:cursor-pointer",
-                )}
+                className="flex items-center justify-center hover:bg-gray-100 rounded-full px-1 hover:cursor-pointer"
                 onClick={handleDislikesClick} aria-disabled={isPending}>
                 {dislikes} <ArrowDown className="h-6 w-6 text-red-500 hover:bg-gray-100 rounded-full" />
             </div>
