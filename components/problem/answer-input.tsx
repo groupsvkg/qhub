@@ -4,12 +4,15 @@ import { KeyboardEvent, useEffect, useState } from "react";
 import { Indicator } from "@/components/indicator";
 import { isInvalidInputChar } from "@/lib/keyboard";
 import { verifyAnswer } from "@/actions/verify-answer";
+import { useRouter } from "next/navigation";
 
 interface AnswerInputProps {
     problemId: string;
 }
 
 export const AnswerInput = ({ problemId }: AnswerInputProps) => {
+    const router = useRouter();
+
     const [answer, setAnswer] = useState<string[]>([])
     const [isTyping, setIsTyping] = useState(false);
     const [isVerifying, setIsVerifying] = useState(false);
@@ -20,10 +23,10 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
             event.preventDefault();
 
             if (isVerifying || isCorrect) return;
+            if (isInvalidInputChar(event)) return;
 
             setIsTyping(true);
 
-            if (isInvalidInputChar(event)) return;
 
             if (event.key === "Enter" && event.code === "Enter") {
                 if (answer.length === 0) {
@@ -42,6 +45,7 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
 
                 if (result) {
                     setIsCorrect(true);
+                    router.refresh();
                 } else {
                     setIsCorrect(false);
                 }

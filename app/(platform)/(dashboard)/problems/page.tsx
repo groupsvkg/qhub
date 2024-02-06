@@ -1,5 +1,6 @@
 import { Sidebar } from "@/components/sidebar";
 import { db } from "@/lib/db";
+import { Action } from "@prisma/client";
 import { formatDistanceToNowStrict } from "date-fns";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import Image from "next/image";
@@ -8,13 +9,22 @@ import Link from "next/link";
 const ProblemsPage = async () => {
     const problems = await db.problem.findMany({
         take: 50,
+        where: {
+            NOT: {
+                activities: {
+                    some: {
+                        action: Action.SOLVED
+                    }
+                }
+            }
+        },
         include: {
             user: true
         },
         orderBy: {
             createdAt: "desc"
         }
-    })
+    });
 
     return (
         <div className="pt-16">

@@ -35,7 +35,8 @@ export const isInvalidInputChar = (event: KeyboardEvent) => {
         (event.key === 'Paste') ||
         (event.key === 'Redo') ||
         (event.key === 'Undo') ||
-        (event.key === 'Enter' && event.code === 'NumpadEnter');
+        (event.key === 'Enter' && event.code === 'NumpadEnter') ||
+        (event.key === 'Alt');
 
     return isInvalid;
 
