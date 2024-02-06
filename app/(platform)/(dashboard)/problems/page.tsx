@@ -1,4 +1,5 @@
 import { Sidebar } from "@/components/sidebar";
+import { getSelf } from "@/lib/auth-service";
 import { db } from "@/lib/db";
 import { Action } from "@prisma/client";
 import { formatDistanceToNowStrict } from "date-fns";
@@ -7,16 +8,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProblemsPage = async () => {
+    const user = await getSelf();
     const problems = await db.problem.findMany({
         take: 50,
         where: {
-            NOT: {
-                activities: {
-                    some: {
-                        action: Action.SOLVED
+            NOT: [
+                {
+                    activities: {
+                        some: {
+                            action: Action.SOLVED
+                        }
                     }
+                },
+                {
+                    userId: user.id
                 }
-            }
+            ]
         },
         include: {
             user: true
