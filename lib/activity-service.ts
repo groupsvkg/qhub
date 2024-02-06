@@ -10,3 +10,13 @@ export const createActivity = async (user: User, problem: Problem) => {
         }
     });
 };
+
+export const getActivity = async (activityId: string) => {
+    const activity = await db.activity.findUnique({
+        where: {
+            id: activityId
+        }
+    });
+
+    return activity;
+}

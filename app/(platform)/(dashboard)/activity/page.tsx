@@ -4,7 +4,7 @@ import Image from "next/image";
 import { formatDistanceToNowStrict } from "date-fns";
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
-import { ArrowDown, ArrowUp, CheckCheck, CircleDashed, Eye, GlassWater, Hourglass, PlusCircle, Trash2, Watch, X } from "lucide-react";
+import { ArrowDown, ArrowUp, CheckCheck, Eye, PlusCircle, Trash2, X } from "lucide-react";
 import { Action } from "@prisma/client";
 
 const ActivityPage = async () => {
@@ -41,7 +41,13 @@ const ActivityPage = async () => {
                     <div className="grid gap-2 grid-cols-1 md:grid-cols-3 xl:grid-cols-6 w-full">
                         {
                             activities.map(activity => (
-                                <Link key={activity.id} href={`/problems/${activity.problemId}`} className="hover:bg-gray-200 rounded-md">
+                                <Link
+                                    key={activity.id}
+                                    href={{
+                                        pathname: `/activity/${activity.problemId}`,
+                                        query: { activityId: activity.id }
+                                    }}
+                                    className="hover:bg-gray-200 rounded-md">
                                     <div className="flex flex-col justify-between p-2 space-y-2 shadow-md border rounded-md h-full">
                                         <div className="relative flex items-start justify-start">
                                             <Image

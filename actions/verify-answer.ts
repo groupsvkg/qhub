@@ -19,7 +19,8 @@ export const verifyAnswer = async (problemId: string, answer: string) => {
             data: {
                 problemId,
                 userId: user.id,
-                action: Action.SOLVED
+                action: Action.SOLVED,
+                input: answer
             }
         });
         return true;
@@ -29,7 +30,8 @@ export const verifyAnswer = async (problemId: string, answer: string) => {
         data: {
             problemId,
             userId: user.id,
-            action: Action.FAILED
+            action: Action.FAILED,
+            input: answer
         }
     });
 

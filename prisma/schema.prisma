@@ -45,7 +45,8 @@ model Problem {
 }
 
 model Activity {
-  id     String @id @default(uuid())
+  id     String  @id @default(uuid())
+  input  String? @db.Text
   action Action
 
   user   User   @relation(fields: [userId], references: [id])
@@ -79,9 +80,9 @@ enum Action {
   UNLIKED
 }
 
-enum Status {
-  NOT_APPLICABLE
-  UNSOLVED
-  SUCCESS
-  FAILED
-}
+// enum Status {
+//   NOT_APPLICABLE
+//   UNSOLVED
+//   SUCCESS
+//   FAILED
+// }

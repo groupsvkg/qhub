@@ -9,18 +9,16 @@ export const onCreate = async (formData: FormData) => {
     const description = formData.get("description") as string;
     const answer = formData.get("answer") as string;
 
-    if(!category || !title || !description || !answer) return;
-    
-    try{
+    if (!category || !title || !description || !answer) return;
+
+    try {
         const problem = await createProblem(category, title, description, answer);
 
         revalidatePath("/");
 
         return problem;
-    } catch(error) {
-        console.log(error);
-        
+    } catch (error) {
         throw new Error("Internal Error");
     }
-    
+
 }
