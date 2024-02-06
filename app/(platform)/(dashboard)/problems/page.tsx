@@ -1,7 +1,7 @@
 import { Sidebar } from "@/components/sidebar";
 import { getSelf } from "@/lib/auth-service";
 import { db } from "@/lib/db";
-import { Action } from "@prisma/client";
+import { getUnsolvedProblems } from "@/lib/problem-service";
 import { formatDistanceToNowStrict } from "date-fns";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import Image from "next/image";
@@ -9,30 +9,7 @@ import Link from "next/link";
 
 const ProblemsPage = async () => {
     const user = await getSelf();
-    const problems = await db.problem.findMany({
-        take: 50,
-        where: {
-            NOT: [
-                {
-                    activities: {
-                        some: {
-                            action: Action.SOLVED
-                        }
-                    }
-                },
-                // TODO: review later
-                // {
-                //     userId: user.id
-                // }
-            ]
-        },
-        include: {
-            user: true
-        },
-        orderBy: {
-            createdAt: "desc"
-        }
-    });
+    const problems = await getUnsolvedProblems(50);
 
     return (
         <div className="pt-16">

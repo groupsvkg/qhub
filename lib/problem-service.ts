@@ -1,6 +1,6 @@
 import { getSelf } from "@/lib/auth-service"
 import { db } from "@/lib/db";
-import { User } from "@prisma/client"
+import { Action, User } from "@prisma/client"
 import { createActivity } from "@/lib/activity-service";
 
 export const createProblem = async (category: string, title: string, description: string, answer: string) => {
@@ -35,4 +35,33 @@ export const getProblem = async (problemId: string) => {
     });
 
     return problem;
+}
+
+export const getUnsolvedProblems = async (take: number) => {
+    const problems = await db.problem.findMany({
+        take: 50,
+        where: {
+            NOT: [
+                {
+                    activities: {
+                        some: {
+                            action: Action.SOLVED
+                        }
+                    }
+                },
+                // TODO: review later
+                // {
+                //     userId: user.id
+                // }
+            ]
+        },
+        include: {
+            user: true
+        },
+        orderBy: {
+            createdAt: "desc"
+        }
+    });
+
+    return problems
 }
