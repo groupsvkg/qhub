@@ -4,7 +4,8 @@ import Image from "next/image";
 import { formatDistanceToNowStrict } from "date-fns";
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp, CheckCheck, CircleDashed, GlassWater, Hourglass, Watch, X } from "lucide-react";
+import { Action } from "@prisma/client";
 
 const ActivityPage = async () => {
     const user = await getSelf();
@@ -42,7 +43,7 @@ const ActivityPage = async () => {
                             activities.map(activity => (
                                 <Link key={activity.id} href={`/problems/${activity.problemId}`} className="hover:bg-gray-200 rounded-md">
                                     <div className="flex flex-col justify-between p-2 space-y-2 shadow-md border rounded-md h-full">
-                                        <div className="flex items-start justify-start">
+                                        <div className="relative flex items-start justify-start">
                                             <Image
                                                 src={user.imageUrl}
                                                 height={50}
@@ -54,6 +55,10 @@ const ActivityPage = async () => {
                                                 <h1 className="text-gray-600 text-sm font-semibold">{activity.problem.category}</h1>
                                                 <p className="text-gray-500 text-xs mt-1">{activity.problem.title}</p>
                                             </div>
+                                            {activity.action === Action.SOLVED && <CheckCheck className="absolute right-0 w-5 h-5 text-green-600" />}
+                                            {activity.action === Action.FAILED && <X className="absolute right-0 w-5 h-5 text-red-600" />}
+                                            {activity.action !== Action.SOLVED && activity.action !== Action.FAILED && <CircleDashed className="absolute right-0 w-5 h-5 text-blue-600" />}
+
                                         </div>
                                         <div className="flex items-center justify-between text-xs text-gray-500 gap-x-1 pt-1">
                                             <span>
