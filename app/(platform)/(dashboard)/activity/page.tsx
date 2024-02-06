@@ -48,8 +48,8 @@ const ActivityPage = async () => {
                                             {activity.action === Action.CREATED && <PlusCircle className="absolute right-0 w-5 h-5 text-blue-600" />}
                                             {activity.action === Action.DELETED && <Trash2 className="absolute right-0 w-5 h-5 text-brown-600" />}
                                             {activity.action === Action.VIEWED && <Eye className="absolute right-0 w-5 h-5 text-purple-600" />}
-                                            {activity.action === Action.LIKED && <ArrowUp className="w-5 h-5 text-green-600" />}
-                                            {activity.action === Action.DISLIKED && <ArrowDown className="w-5 h-5 text-red-600" />}
+                                            {activity.action === Action.LIKED && <ArrowUp className="absolute right-0 w-5 h-5 text-green-600" />}
+                                            {activity.action === Action.DISLIKED && <ArrowDown className="absolute right-0 w-5 h-5 text-red-600" />}
 
                                         </div>
                                         <div className="flex items-center justify-between text-xs text-gray-500 gap-x-1 pt-1">
