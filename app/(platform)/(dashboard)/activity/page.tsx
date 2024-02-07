@@ -2,7 +2,6 @@ import { Sidebar } from "@/components/sidebar"
 import Link from "next/link";
 import Image from "next/image";
 import { formatDistanceToNowStrict } from "date-fns";
-import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
 import { ArrowDown, ArrowUp, CheckCheck, Eye, PlusCircle, Trash2, X } from "lucide-react";
 import { Action } from "@prisma/client";
