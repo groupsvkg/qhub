@@ -48,13 +48,13 @@ export const Editor = () => {
     <div className="container p-0">
       <div className='md:hidden'>
         <MDEditor
-          id="description"
           value={value}
           // @ts-ignore
           onChange={setValue}
           textareaProps={{
             placeholder: 'Enter markdown text',
-            name: "description"
+            name: "description",
+            id: "description"
           }}
           preview='live'
           height={200}

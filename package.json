@@ -12,7 +12,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.5",
+    "@clerk/nextjs": "^4.29.6",
     "@next/third-parties": "^14.1.0",
     "@prisma/client": "^5.9.1",
     "@radix-ui/react-dialog": "^1.0.5",
