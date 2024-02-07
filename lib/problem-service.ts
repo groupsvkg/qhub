@@ -38,6 +38,8 @@ export const getProblem = async (problemId: string) => {
 }
 
 export const getUnsolvedProblems = async (take: number) => {
+    const user = await getSelf();
+
     const problems = await db.problem.findMany({
         take: 50,
         where: {
@@ -45,11 +47,12 @@ export const getUnsolvedProblems = async (take: number) => {
                 {
                     activities: {
                         some: {
-                            action: Action.SOLVED
+                            action: Action.SOLVED,
+                            userId: user.id
                         }
                     }
                 },
-                // TODO: review later
+                // TODO: review later - exclude or show problems created by user in problems page.
                 // {
                 //     userId: user.id
                 // }

@@ -1,7 +1,7 @@
 
 import { getSelf } from "@/lib/auth-service";
 import { getProfileStats } from "@/lib/profile-service";
-import { ArrowDown, ArrowUp, CheckCheck, PlusCircle } from "lucide-react";
+import { ArrowDown, ArrowUp, CheckCheck, PlusCircle, X } from "lucide-react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { formatDistanceToNowStrict } from "date-fns";
@@ -47,6 +47,17 @@ export const Profile = async () => {
                                         {value.action}
                                     </div>
                                     <CheckCheck className="absolute right-1 top-1 h-4 w-4 text-green-800" />
+                                </Card>
+                            }
+                            {
+                                value.action === "FAILED" && <Card className="relative flex flex-col items-center justify-center">
+                                    <div className="text-red-800 text-6xl">
+                                        {value._count}
+                                    </div>
+                                    <div className="text-gray-400 font-bold capitalize">
+                                        {value.action}
+                                    </div>
+                                    <X className="absolute right-1 top-1 h-4 w-4 text-red-800" />
                                 </Card>
                             }
                             {
