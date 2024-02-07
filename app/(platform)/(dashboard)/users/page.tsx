@@ -1,9 +1,9 @@
 import { Sidebar } from "@/components/sidebar"
 import { db } from "@/lib/db";
-import { Activity, Dot, Grip } from "lucide-react";
+import { Activity, Dot, Grip, PlusCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow, formatDistanceToNowStrict } from "date-fns";
 
 const UsersPage = async () => {
     const users = await db.user.findMany({
@@ -28,24 +28,22 @@ const UsersPage = async () => {
                             users.map(user => (
                                 <Link key={user.id} href={`/users/${user.id}`} className="hover:bg-gray-200 rounded-md">
                                     <div className="flex flex-col justify-between p-2 space-y-2 shadow-md border rounded-md h-full">
-                                        <div className="flex items-center justify-start">
+                                        <div className="flex items-start justify-start">
                                             <Image
                                                 src={user.imageUrl}
                                                 height={50}
                                                 width={50}
-                                                alt="Problem creator"
+                                                alt="Problem author"
                                                 className="rounded-full"
                                             />
-                                            <div className="flex flex-col ml-1 text-ellipsis overflow-hidden tracking-tighter">
-                                                <h1 className="text-gray-700 text-md font-semibold">{user.firstName + " " + user.lastName}</h1>
+                                            <div className="flex flex-col ml-2 text-ellipsis overflow-hidden tracking-tighter">
+                                                <h1 className="text-gray-700 text-sm font-semibold">{user.firstName + " " + user.lastName}</h1>
+                                                <p className="text-xs text-gray-400">joined {formatDistanceToNow(user.createdAt)} ago</p>
                                                 <p className="text-gray-500 text-sm">{user.bio}</p>
                                             </div>
                                         </div>
                                         <div className="flex items-center justify-start text-xs text-gray-500 gap-x-1 pt-1">
-                                            <span>
-                                                {formatDistanceToNow(user.createdAt)}
-                                            </span>
-                                            <Grip className="h-4 w-4 ml-2" /> {user._count.problems}
+                                            <PlusCircle className="w-4 h-4 text-blue-600" /> {user._count.problems}
                                             <Activity className="h-4 w-4 ml-2" /> {user._count.activities}
                                         </div>
                                     </div>
