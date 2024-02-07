@@ -76,7 +76,7 @@ export async function POST(req: Request) {
       where: {
         externalUserId: payload.data.id,
       },
-    });
+    }).catch();
   }
 
   return new Response('', { status: 200 })
