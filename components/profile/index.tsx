@@ -1,7 +1,7 @@
 
 import { getSelf } from "@/lib/auth-service";
 import { getProfileStats } from "@/lib/profile-service";
-import { ArrowDown, ArrowUp, CheckCheck, Grip, Hourglass, PlusCircle } from "lucide-react";
+import { ArrowDown, ArrowUp, CheckCheck, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { formatDistanceToNowStrict } from "date-fns";
@@ -23,7 +23,7 @@ export const Profile = async () => {
             <h1 className="text-2xl font-bold">{user.firstName + " " + user.lastName}</h1>
             <p className="text-sm text-gray-400">joined {formatDistanceToNowStrict(user.createdAt)} ago</p>
             {user.bio && <p className="text-gray-500 dark:text-gray-400">{user.bio}</p>}
-            <div className="flex flex-col md:flex-row items-center justify-evenly w-full gap-2">
+            <div className="flex flex-col md:flex-row items-center justify-evenly w-full gap-2 px-2">
                 {
                     profileStats.map((value, index) => (
                         <>
