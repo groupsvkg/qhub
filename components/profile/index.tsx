@@ -23,12 +23,12 @@ export const Profile = async () => {
             <h1 className="text-2xl font-bold">{user.firstName + " " + user.lastName}</h1>
             <p className="text-sm text-gray-400">joined {formatDistanceToNowStrict(user.createdAt)} ago</p>
             {user.bio && <p className="text-gray-500 dark:text-gray-400">{user.bio}</p>}
-            <div className="flex flex-col md:flex-row items-center justify-evenly w-full gap-2 px-2">
+            <div className="flex flex-col md:flex-row items-center justify-around w-full gap-2 px-2 max-w-5xl">
                 {
                     profileStats.map((value, index) => (
-                        <>
+                        <div key={index} className="w-full">
                             {
-                                value.action === "CREATED" && <Card key={index} className="relative w-[350px] flex flex-col items-center justify-center">
+                                value.action === "CREATED" && <Card className="relative flex flex-col items-center justify-center">
                                     <div className="text-blue-500 text-6xl">
                                         {value._count}
                                     </div>
@@ -39,7 +39,7 @@ export const Profile = async () => {
                                 </Card>
                             }
                             {
-                                value.action === "SOLVED" && <Card key={index} className="relative w-[350px] flex flex-col items-center justify-center">
+                                value.action === "SOLVED" && <Card className="relative flex flex-col items-center justify-center">
                                     <div className="text-green-800 text-6xl">
                                         {value._count}
                                     </div>
@@ -50,7 +50,7 @@ export const Profile = async () => {
                                 </Card>
                             }
                             {
-                                value.action === "LIKED" && <Card key={index} className="relative w-[350px] flex flex-col items-center justify-center">
+                                value.action === "LIKED" && <Card className="relative flex flex-col items-center justify-center">
                                     <div className="text-green-400 text-6xl">
                                         {value._count}
                                     </div>
@@ -61,7 +61,7 @@ export const Profile = async () => {
                                 </Card>
                             }
                             {
-                                value.action === "DISLIKED" && <Card key={index} className="relative w-[350px] flex flex-col items-center justify-center">
+                                value.action === "DISLIKED" && <Card className="relative flex flex-col items-center justify-center">
                                     <div className="text-red-400 text-6xl">
                                         {value._count}
                                     </div>
@@ -71,7 +71,7 @@ export const Profile = async () => {
                                     <ArrowDown className="absolute right-1 top-1 h-4 w-4 text-red-400" />
                                 </Card>
                             }
-                        </>
+                        </div>
                     ))
                 }
 
