@@ -4,6 +4,7 @@ import { PlusCircle, Trophy } from "lucide-react"
 import { MobileSidebar } from "@/components/mobile-sidebar"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { Button } from "./ui/button"
 
 export const Navbar = () => {
     return (
@@ -12,20 +13,20 @@ export const Navbar = () => {
                 <MobileSidebar />
                 <Logo />
             </div>
-            <div className="flex items-center justify-between gap-3">
-                <Link href="/leaderboard" className="hover:bg-gray-200 rounded-full">
-                    <div className={cn(
+            <div className="flex items-center justify-between">
+                <Link href="/leaderboard">
+                    <Button size="sm" variant="ghost" className={cn(
                         "flex items-center justify-start",
                     )}>
                         <div><Trophy className="h-5 w-5 text-gray-400" /></div>
-                    </div>
+                    </Button>
                 </Link>
-                <Link href="/post" className="hover:bg-gray-200 rounded-full">
-                    <div className={cn(
+                <Link href="/post">
+                    <Button size="sm" variant="ghost" className={cn(
                         "flex items-center justify-start",
                     )}>
                         <div><PlusCircle className="h-5 w-5 text-gray-400" /></div>
-                    </div>
+                    </Button>
                 </Link>
                 <UserButton afterSignOutUrl="/" />
             </div>
