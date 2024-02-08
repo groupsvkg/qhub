@@ -67,7 +67,7 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                 setIsVerifying(false);
 
             }}>
-                <Input autoComplete="off" name="input" ref={inputRef} onChange={handleChange} className="opacity-0 w-0 h-0 z-0" />
+                <Input type="text" autoFocus={true} autoCorrect="off" autoComplete="off" name="input" ref={inputRef} onChange={handleChange} className="opacity-0 w-0 h-0 z-0" />
                 <Button className="hidden" type="submit" />
             </form>
         </div>
