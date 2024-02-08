@@ -58,6 +58,9 @@ export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
             }
 
             if (event.code === "Backspace") {
+                if (answer.length === 1 || answer.length === 0) {
+                    setIsTyping(false);
+                }
                 setIsCorrect(null);
                 setAnswer(answer.slice(0, answer.length - 1));
             } else {
@@ -72,7 +75,7 @@ export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
 
         // @ts-ignore
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [answer, isVerifying, isCorrect, problemId]);
+    }, [answer, isTyping, isVerifying, isCorrect, problemId, router]);
 
     const handleTap = () => {
         if (inputRef.current)
@@ -81,7 +84,7 @@ export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
 
     return (
         <div
-            className="text-gray-400 font-semibold text-4xl flex flex-wrap items-center justify-center focus:outline-none w-full"
+            className="text-gray-400 font-semibold text-4xl flex flex-wrap items-center justify-center focus:outline-none w-full h-full"
             spellCheck={false}
             onClick={handleTap}
         >
