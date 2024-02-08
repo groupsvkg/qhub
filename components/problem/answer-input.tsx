@@ -36,26 +36,35 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
     }
 
     return (
-        <div
-            className="relative text-gray-300 text-4xl flex flex-wrap items-center justify-center focus:outline-none w-full h-full"
-            spellCheck={false}
-            onClick={handleTap}
-        >
-            {
-                answer.split('').map((char, index) => (
-                    <span key={index} className="text-gray-500 m-1 flex h-10 w-10 items-center justify-center border-2 border-dashed border-orange-300 focus:outline-none">{char}</span>
-                ))
-            }
-            <Indicator isVerifying={isVerifying} isCorrect={isCorrect} />
-            {!answer && "Type to answer"}
-            {!answer &&
-                <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute -top-2 -right-1 inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
-                    <span className="relative -top-2 -right-1 inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                </span>
-            }
+        <>
+            <div
+                className="relative text-gray-300 text-4xl flex flex-wrap items-center justify-center  focus:outline-none w-full h-full"
+                spellCheck={false}
+                onClick={handleTap}
+            >
+                <div className="flex flex-wrap items-center justify-center">
+                    {
+                        answer.split('').map((char, index) => (
+                            <span key={index} className="text-gray-500 m-1 flex h-10 w-10 items-center justify-center border-2 border-dashed border-orange-300 focus:outline-none">{char}</span>
+                        ))
+                    }
+                </div>
+
+                <div className="absolute top-4 right-1">
+                    <Indicator isVerifying={isVerifying} isCorrect={isCorrect} />
+                </div>
+                {!answer && "Type to answer"}
+                {!answer &&
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute -top-2 -right-1 inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
+                        <span className="relative -top-2 -right-1 inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                    </span>
+                }
+
+            </div>
+
             <form
-                className="absolute right-0 bottom-0"
+                className="absolute bottom-0 w-full"
                 action={async (formData: FormData) => {
                     setIsVerifying(true);
                     const isCorrect = await verifyAnswer(problemId, answer);
@@ -78,9 +87,9 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                     name="input"
                     ref={inputRef}
                     onChange={handleChange}
-                    className="opacity-0 -z-1 w-1 h-1 overflow-hidden" />
+                    className="opacity-0 w-full overflow-hidden" />
                 <Button type="submit" variant="ghost" />
             </form>
-        </div>
+        </>
     );
 };
