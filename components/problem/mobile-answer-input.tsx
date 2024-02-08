@@ -1,11 +1,10 @@
 "use client";
 
-import { ChangeEvent, ChangeEventHandler, KeyboardEvent, useEffect, useState } from "react";
+import { KeyboardEvent, useEffect, useState } from "react";
 import { Indicator } from "@/components/indicator";
 import { isInvalidInputChar } from "@/lib/keyboard";
 import { verifyAnswer } from "@/actions/verify-answer";
 import { useRouter } from "next/navigation";
-import { Input } from "../ui/input";
 
 interface MobileAnswerInputProps {
     problemId: string;
@@ -77,6 +76,7 @@ export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
         <div
             className="text-gray-400 font-semibold text-4xl flex flex-wrap items-center justify-center focus:outline-none w-full"
             spellCheck={false}
+            contentEditable={true}
         >
             {
                 isTyping && answer.map((char, index) => (
@@ -89,7 +89,6 @@ export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
                 <span className="animate-ping absolute -top-2 -right-1 inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
                 <span className="relative -top-2 -right-1 inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>}
-            <Input />
         </div>
     );
 };
