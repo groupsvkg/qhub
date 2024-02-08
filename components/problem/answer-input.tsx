@@ -58,6 +58,7 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
             }
 
             if (event.code === "Backspace") {
+                if (answer.length === 0 || answer.length === 1) setIsTyping(false);
                 setIsCorrect(null);
                 setAnswer(answer.slice(0, answer.length - 1));
             } else {
