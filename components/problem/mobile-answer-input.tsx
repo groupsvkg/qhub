@@ -75,7 +75,6 @@ export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
     }, [answer, isVerifying, isCorrect, problemId]);
 
     const handleTap = () => {
-        setAnswer(["t", "e", "s", "t"]);
         if (inputRef.current)
             inputRef.current.focus();
     }
