@@ -45,7 +45,11 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                 <div className="flex flex-wrap items-center justify-center">
                     {
                         answer.split('').map((char, index) => (
-                            <span key={index} className="text-gray-500 m-1 flex h-10 w-10 items-center justify-center border-2 border-dashed border-orange-300 focus:outline-none">{char}</span>
+                            <span
+                                key={index}
+                                className="text-gray-500 m-1 flex h-10 w-10 items-center justify-center border-2 border-dashed border-orange-300 focus:outline-none">
+                                {char}
+                            </span>
                         ))
                     }
                 </div>
@@ -53,7 +57,8 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                 <div className="absolute top-4 right-1">
                     <Indicator isVerifying={isVerifying} isCorrect={isCorrect} />
                 </div>
-                {!answer && "Type to answer"}
+                {!answer && <span className="hidden md:block">{"Type to answer"}</span>}
+                {!answer && <span className="md:hidden">{"Tap to answer"}</span>}
                 {!answer &&
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute -top-2 -right-1 inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
