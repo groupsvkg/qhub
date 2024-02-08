@@ -4,13 +4,16 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Indicator } from "@/components/indicator";
 import { verifyAnswer } from "@/actions/verify-answer";
 import { Input } from "@/components/ui/input";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
 
 interface AnswerInputProps {
     problemId: string;
 }
 
 export const AnswerInput = ({ problemId }: AnswerInputProps) => {
+    const router = useRouter();
     const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [answer, setAnswer] = useState<string>("");
@@ -76,6 +79,10 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
 
                     if (isCorrect) {
                         setIsCorrect(true);
+                        toast({
+                            title: "Success",
+                        })
+                        router.push("/problems");
                     } else {
                         setIsCorrect(false);
                     }
