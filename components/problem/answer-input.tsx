@@ -1,10 +1,11 @@
 "use client";
 
-import { KeyboardEvent, useEffect, useState } from "react";
+import { KeyboardEvent, useEffect, useRef, useState } from "react";
 import { Indicator } from "@/components/indicator";
 import { isInvalidInputChar } from "@/lib/keyboard";
 import { verifyAnswer } from "@/actions/verify-answer";
 import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
 
 interface AnswerInputProps {
     problemId: string;
@@ -12,6 +13,7 @@ interface AnswerInputProps {
 
 export const AnswerInput = ({ problemId }: AnswerInputProps) => {
     const router = useRouter();
+    const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [answer, setAnswer] = useState<string[]>([])
     const [isTyping, setIsTyping] = useState(false);
@@ -70,12 +72,19 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
 
         // @ts-ignore
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [answer, isVerifying, isCorrect, problemId])
+    }, [answer, isTyping, isVerifying, isCorrect, problemId]);
+
+    const handleTap = () => {
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
+    }
 
     return (
         <div
             className="text-gray-400 font-semibold text-4xl flex flex-wrap items-center justify-center focus:outline-none w-full"
             spellCheck={false}
+            onClick={handleTap}
         >
             {
                 isTyping && answer.map((char, index) => (
@@ -84,10 +93,13 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
             }
             {isTyping && <Indicator isVerifying={isVerifying} isCorrect={isCorrect} />}
             {!isTyping && "Type to answer"}
-            {!isTyping && <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute -top-2 -right-1 inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
-                <span className="relative -top-2 -right-1 inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-            </span>}
+            {!isTyping &&
+                <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute -top-2 -right-1 inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
+                    <span className="relative -top-2 -right-1 inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+            }
+            <Input ref={inputRef} className="opacity-0 w-0 h-0" />
         </div>
     );
 };
