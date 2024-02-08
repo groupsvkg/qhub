@@ -1,16 +1,17 @@
 "use client";
 
-import { KeyboardEvent, useEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, KeyboardEvent, useEffect, useState } from "react";
 import { Indicator } from "@/components/indicator";
 import { isInvalidInputChar } from "@/lib/keyboard";
 import { verifyAnswer } from "@/actions/verify-answer";
 import { useRouter } from "next/navigation";
+import { Input } from "../ui/input";
 
-interface AnswerInputProps {
+interface MobileAnswerInputProps {
     problemId: string;
 }
 
-export const AnswerInput = ({ problemId }: AnswerInputProps) => {
+export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
     const router = useRouter();
 
     const [answer, setAnswer] = useState<string[]>([])
@@ -83,11 +84,12 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                 ))
             }
             {isTyping && <Indicator isVerifying={isVerifying} isCorrect={isCorrect} />}
-            {!isTyping && "Type to answer"}
+            {!isTyping && "Tap to answer"}
             {!isTyping && <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute -top-2 -right-1 inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
                 <span className="relative -top-2 -right-1 inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>}
+            <Input type="hidden" onChange={(event: ChangeEvent) => setAnswer(event.target.value)} />
         </div>
     );
 };

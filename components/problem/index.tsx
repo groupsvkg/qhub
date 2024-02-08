@@ -2,6 +2,7 @@ import { getProblem } from "@/lib/problem-service";
 import ProblemPreview from "@/components/problem/problem-preview";
 import { AnswerInput } from "@/components/problem/answer-input";
 import { LikesDislikes } from "@/components/likes-dislikes";
+import { MobileAnswerInput } from "@/components/problem/mobile-answer-input";
 
 interface ProblemProps {
     problemId: string;
@@ -18,8 +19,11 @@ export const Problem = async ({ problemId }: ProblemProps) => {
                     <h1 className="text-3xl font-semibold">{problem?.title}</h1>
                     <ProblemPreview problem={problem} />
                 </div>
-                <div className="mt-2 border-t-2 flex items-center justify-center flex-1">
+                <div className="hidden mt-2 border-t-2 md:flex items-center justify-center flex-1">
                     <AnswerInput problemId={problemId} />
+                </div>
+                <div className="md:hidden mt-2 border-t-2 flex items-center justify-center flex-1">
+                    <MobileAnswerInput problemId={problemId} />
                 </div>
             </div>
         </div>
