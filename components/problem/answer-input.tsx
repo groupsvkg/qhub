@@ -37,7 +37,7 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
 
     return (
         <div
-            className="text-gray-300 text-4xl flex flex-wrap items-center justify-center focus:outline-none w-full h-full"
+            className="relative text-gray-300 text-4xl flex flex-wrap items-center justify-center focus:outline-none w-full h-full"
             spellCheck={false}
             onClick={handleTap}
         >
@@ -54,21 +54,31 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                     <span className="relative -top-2 -right-1 inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                 </span>
             }
-            <form action={async (formData: FormData) => {
-                setIsVerifying(true);
-                const isCorrect = await verifyAnswer(problemId, answer);
+            <form
+                className="absolute right-0 bottom-0 bg-red-500"
+                action={async (formData: FormData) => {
+                    setIsVerifying(true);
+                    const isCorrect = await verifyAnswer(problemId, answer);
 
-                if (isCorrect) {
-                    setIsCorrect(true);
-                } else {
-                    setIsCorrect(false);
-                }
+                    if (isCorrect) {
+                        setIsCorrect(true);
+                    } else {
+                        setIsCorrect(false);
+                    }
 
-                setIsVerifying(false);
+                    setIsVerifying(false);
 
-            }}>
-                <Input type="text" autoFocus={true} autoCorrect="off" autoComplete="off" name="input" ref={inputRef} onChange={handleChange} className="opacity-0 w-0 h-0 z-0" />
-                <Button className="hidden" type="submit" />
+                }}>
+                <Input
+                    type="text"
+                    autoFocus={true}
+                    autoCorrect="off"
+                    autoComplete="off"
+                    name="input"
+                    ref={inputRef}
+                    onChange={handleChange}
+                    className="opacity-0 -z-1 w-1 h-1 overflow-hidden" />
+                <Button type="submit" variant="ghost" />
             </form>
         </div>
     );
