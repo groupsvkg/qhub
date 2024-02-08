@@ -55,7 +55,7 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                 </span>
             }
             <form
-                className="absolute right-0 bottom-0 bg-red-500"
+                className="absolute right-0 bottom-0"
                 action={async (formData: FormData) => {
                     setIsVerifying(true);
                     const isCorrect = await verifyAnswer(problemId, answer);
@@ -74,6 +74,7 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                     autoFocus={true}
                     autoCorrect="off"
                     autoComplete="off"
+                    inputMode="text"
                     name="input"
                     ref={inputRef}
                     onChange={handleChange}
