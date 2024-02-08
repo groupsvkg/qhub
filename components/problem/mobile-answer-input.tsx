@@ -97,7 +97,7 @@ export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
                 <span className="animate-ping absolute -top-2 -right-1 inline-flex h-full w-full rounded-full bg-red-700 opacity-75"></span>
                 <span className="relative -top-2 -right-1 inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>}
-            <Input ref={inputRef} className="opacity-0" />
+            <Input ref={inputRef} className="opacity-0" tabIndex={-1} />
         </div>
     );
 };
