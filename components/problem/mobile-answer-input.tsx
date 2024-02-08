@@ -25,50 +25,50 @@ export const MobileAnswerInput = ({ problemId }: MobileAnswerInputProps) => {
             event.preventDefault();
             setAnswer([...answer, event.key]);
 
-            if (isVerifying || isCorrect) return;
-            if (isInvalidInputChar(event)) return;
+            // if (isVerifying || isCorrect) return;
+            // if (isInvalidInputChar(event)) return;
 
-            setIsTyping(true);
+            // setIsTyping(true);
 
 
-            if (event.key === "Enter" && event.code === "Enter") {
-                if (answer.length === 0) {
-                    setIsTyping(false);
-                    return;
-                }
-                if (answer[answer.length - 1] === '\u23ce') return;
+            // if (event.key === "Enter" && event.code === "Enter") {
+            //     if (answer.length === 0) {
+            //         setIsTyping(false);
+            //         return;
+            //     }
+            //     if (answer[answer.length - 1] === '\u23ce') return;
 
-                setAnswer([...answer, '\u23ce']);
-                setIsVerifying(true);
+            //     setAnswer([...answer, '\u23ce']);
+            //     setIsVerifying(true);
 
-                const verify = async () => {
-                    return await verifyAnswer(problemId, answer.join(''));
-                }
-                const result = await verify();
+            //     const verify = async () => {
+            //         return await verifyAnswer(problemId, answer.join(''));
+            //     }
+            //     const result = await verify();
 
-                if (result) {
-                    setIsCorrect(true);
-                    router.refresh();
-                } else {
-                    setIsCorrect(false);
-                }
+            //     if (result) {
+            //         setIsCorrect(true);
+            //         router.refresh();
+            //     } else {
+            //         setIsCorrect(false);
+            //     }
 
-                setIsVerifying(false);
+            //     setIsVerifying(false);
 
-                return;
-            }
+            //     return;
+            // }
 
-            if (event.code === "Backspace") {
-                if (answer.length === 1 || answer.length === 0) {
-                    setIsTyping(false);
-                }
-                setIsCorrect(null);
-                setAnswer(answer.slice(0, answer.length - 1));
-            } else {
-                if (answer[answer.length - 1] === '\u23ce') return;
-                if (event.key.charCodeAt(0) >= 32 && event.key.charCodeAt(0) <= 126)
-                    setAnswer([...answer, event.key]);
-            }
+            // if (event.code === "Backspace") {
+            //     if (answer.length === 1 || answer.length === 0) {
+            //         setIsTyping(false);
+            //     }
+            //     setIsCorrect(null);
+            //     setAnswer(answer.slice(0, answer.length - 1));
+            // } else {
+            //     if (answer[answer.length - 1] === '\u23ce') return;
+            //     if (event.key.charCodeAt(0) >= 32 && event.key.charCodeAt(0) <= 126)
+            //         setAnswer([...answer, event.key]);
+            // }
         };
 
         // @ts-ignore
