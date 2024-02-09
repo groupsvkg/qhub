@@ -32,7 +32,7 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
         }
 
         document.addEventListener('click', handleTap);
-        document.dispatchEvent(new MouseEvent('click', {}));
+        // document.dispatchEvent(new MouseEvent('click', {}));
 
         return () => document.removeEventListener('click', handleTap);
     }, [])
