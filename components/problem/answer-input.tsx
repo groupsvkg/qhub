@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
-import { revalidatePath } from "next/cache";
 
 interface AnswerInputProps {
     problemId: string;
@@ -22,13 +21,18 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
     useEffect(() => {
-        const handleTap = () => {
-            if (inputRef.current) {
-                inputRef.current.focus();
+        const handleTap = (event: MouseEvent | TouchEvent) => {
+            if (event instanceof MouseEvent) {
+                if (inputRef.current) {
+                    inputRef.current.focus();
+                }
             }
+
+            if (event instanceof TouchEvent) { }
         }
 
         document.addEventListener('click', handleTap);
+        document.dispatchEvent(new MouseEvent('click', {}));
 
         return () => document.removeEventListener('click', handleTap);
     }, [])
@@ -92,7 +96,6 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
                 }}>
                 <Input
                     type="text"
-                    autoFocus={true}
                     autoCorrect="off"
                     autoComplete="off"
                     inputMode="text"
