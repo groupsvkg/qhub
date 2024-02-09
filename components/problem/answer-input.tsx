@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
+import { revalidatePath } from "next/cache";
 
 interface AnswerInputProps {
     problemId: string;
@@ -72,8 +73,8 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
 
             <form
                 className="absolute bottom-0 w-full"
+                onSubmit={() => setIsVerifying(true)}
                 action={async (formData: FormData) => {
-                    setIsVerifying(true);
                     const isCorrect = await verifyAnswer(problemId, answer);
 
                     if (isCorrect) {
