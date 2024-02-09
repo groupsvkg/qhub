@@ -1,5 +1,6 @@
 "use client";
 
+import { useMediaQuery } from 'usehooks-ts'
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Indicator } from "@/components/indicator";
 import { verifyAnswer } from "@/actions/verify-answer";
@@ -14,7 +15,8 @@ interface AnswerInputProps {
 
 export const AnswerInput = ({ problemId }: AnswerInputProps) => {
     const router = useRouter();
-    const inputRef = useRef<HTMLInputElement | null>(null)
+    const inputRef = useRef<HTMLInputElement | null>(null);
+    const matches = useMediaQuery('(min-width: 768px)'); // Ugly
 
     const [answer, setAnswer] = useState<string>("");
     const [isVerifying, setIsVerifying] = useState(false);
@@ -32,10 +34,11 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
         }
 
         document.addEventListener('click', handleTap);
-        // document.dispatchEvent(new MouseEvent('click', {}));
+        if (matches)
+            document.dispatchEvent(new MouseEvent('click', {}));
 
         return () => document.removeEventListener('click', handleTap);
-    }, [])
+    }, [matches])
 
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
