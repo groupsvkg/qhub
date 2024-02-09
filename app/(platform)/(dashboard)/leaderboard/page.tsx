@@ -34,14 +34,14 @@ const LeaderboardPage = async () => {
                                                 <p className="text-gray-400 text-sm">joined {formatDistanceToNowStrict(leader.createdAt)} ago</p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center justify-center text-7xl text-gray-400">
-                                            <div className="flex flex-col items-center gap-x-4">
-                                                {leader._count.activities} <CheckCheck className="text-green-600" />
+                                        <div className="flex items-center justify-center text-2xl md:text-7xl text-gray-400">
+                                            <div className="flex flex-col items-center gap-y-2 text-green-600">
+                                                {leader._count.activities} <CheckCheck />
                                             </div>
                                         </div>
-                                        <div className="flex items-center justify-center text-7xl text-gray-400 mr-4">
-                                            <div className="flex flex-col items-center gap-x-4">
-                                                {index + 1} <Crown className="text-yellow-600" />
+                                        <div className="flex items-center justify-center text-2xl md:text-7xl text-gray-400 mr-4">
+                                            <div className="flex flex-col items-center gap-y-2 text-yellow-600">
+                                                {index + 100} <Crown />
                                             </div>
                                         </div>
                                     </div>
