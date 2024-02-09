@@ -29,8 +29,9 @@ export const getProblem = async (problemId: string) => {
             id: problemId
         },
         include: {
-            activities: true,
-            user: true
+            // TODO: review if its needed or separate api is needed like getProblemAndUser, getProblemAndActivity..etc
+            // activities: true,
+            // user: true
         }
     });
 
