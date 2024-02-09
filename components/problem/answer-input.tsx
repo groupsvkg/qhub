@@ -23,19 +23,17 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
     useEffect(() => {
-        const handleTap = (event: MouseEvent | TouchEvent) => {
-            if (event instanceof MouseEvent) {
-                if (inputRef.current) {
-                    inputRef.current.focus();
-                }
+        const handleTap = (event: MouseEvent) => {
+            if (inputRef.current) {
+                inputRef.current.focus();
             }
 
-            if (event instanceof TouchEvent) { }
         }
 
         document.addEventListener('click', handleTap);
-        if (matches)
+        if (matches) {
             document.dispatchEvent(new MouseEvent('click', {}));
+        }
 
         return () => document.removeEventListener('click', handleTap);
     }, [matches])
