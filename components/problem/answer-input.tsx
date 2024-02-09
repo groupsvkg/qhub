@@ -21,16 +21,17 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
     useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.click();
+        const handleTap = () => {
+            if (inputRef.current) {
+                inputRef.current.focus();
+            }
         }
+
+        document.addEventListener('click', handleTap);
+
+        return () => document.removeEventListener('click', handleTap);
     }, [])
 
-    const handleTap = () => {
-        if (inputRef.current) {
-            inputRef.current.focus();
-        }
-    }
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (isCorrect) return;
@@ -42,8 +43,6 @@ export const AnswerInput = ({ problemId }: AnswerInputProps) => {
         <>
             <div
                 className="relative text-gray-300 text-4xl flex flex-wrap items-center justify-center  focus:outline-none w-full h-full"
-                spellCheck={false}
-                onClick={handleTap}
             >
                 <div className="flex flex-wrap items-center justify-center">
                     {
