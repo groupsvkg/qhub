@@ -23,6 +23,61 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Webhooks
   - Install `svix` using `npm install svix`
 
+## Pages
+
+### Home Page
+
+<img src="docs/images/home-page.png"/>
+
+### Problems Page
+
+<img src="docs/images/problems-page.png"/>
+
+### Problem Details Page
+
+<img src="docs/images/problem-details-page-1.png"/>
+
+<img src="docs/images/problem-details-page-2.png"/>
+
+<img src="docs/images/problem-details-page-3.png"/>
+
+<img src="docs/images/problem-details-page-4.png"/>
+
+<img src="docs/images/problem-details-page-5.png"/>
+
+<img src="docs/images/problem-details-page-6.png"/>
+
+<img src="docs/images/problem-details-page-7.png"/>
+
+### Post Page
+
+<img src="docs/images/post-page-1.png"/>
+
+<img src="docs/images/post-page-2.png"/>
+
+<img src="docs/images/post-page-3.png"/>
+
+<img src="docs/images/post-page-4.png"/>
+
+### Activity Page
+
+<img src="docs/images/activity-page-1.png"/>
+
+### Activity Details Page
+
+<img src="docs/images/activity-details-page-1.png"/>
+
+<img src="docs/images/activity-details-page-2.png"/>
+
+### Leaderboard Page
+
+<img src="docs/images/leaderboard-page-1.png"/>
+
+### Profile Page
+
+<img src="docs/images/profile-page-1.png"/>
+
+
 ## Tasks
 
 ### Loading Page
