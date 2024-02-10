@@ -2,6 +2,8 @@ QHub is a question and answer application. It gives user ability to post problem
 
 <b>Application url</b> - [QHub](https://qhub.vercel.app), 
 
+<img src="docs/images/logo.svg"/>
+
 `https://qhub.vercel.app`
 
 ## Pages
