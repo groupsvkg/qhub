@@ -1,6 +1,8 @@
 QHub is a question and answer application. It gives user ability to post problem on any topic using `markdown`, `svg`, `latex`, `html`, `css`, `text`, `audio`, and `vedio`.
 
-Application url - `https://qhub.vercel.app`
+<b>Application url</b> - [QHub](https://qhub.vercel.app), 
+
+`https://qhub.vercel.app`
 
 ## Pages
 
