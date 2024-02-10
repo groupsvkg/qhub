@@ -1,27 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+QHub is a question and answer application. It gives user ability to post problem on any topic using `markdown`, `svg`, `latex`, `html`, `css`, `text`, `audio`, and `vedio`.
 
-
-## Setup
-
-- Add `shadcn/ui` using `npx shadcn-ui@latest init`
-- Testing
-  - Jest
-    - `npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom`
-    - `npm init jest@latest`
-    - `npm install -D ts-node`
-    - `npm install --save-dev @jest/globals`
-- Authentication
-  - Install `clerk` using `npm install @clerk/nextjs`
-- Database setup
-  - Install `prisma` using `npm install -D prisma`
-  - Install prisma client using `npm install @prisma/client`
-  - Init prisma `npx prisma init`
-  - Use `npx prisma db push` to push new changes followed by `npx prisma generate`
-  - Use `npx prisma studio` to view data
-- ngrok
-  - `ngrok http --domain=amoeba-suited-basically.ngrok-free.app 3000`
-- Webhooks
-  - Install `svix` using `npm install svix`
+Application url - `https://qhub.vercel.app`
 
 ## Pages
 
@@ -118,6 +97,28 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## TODO
 
 - Update clerk endpoint for production deployment.
+
+## Setup
+
+- Add `shadcn/ui` using `npx shadcn-ui@latest init`
+- Testing
+  - Jest
+    - `npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom`
+    - `npm init jest@latest`
+    - `npm install -D ts-node`
+    - `npm install --save-dev @jest/globals`
+- Authentication
+  - Install `clerk` using `npm install @clerk/nextjs`
+- Database setup
+  - Install `prisma` using `npm install -D prisma`
+  - Install prisma client using `npm install @prisma/client`
+  - Init prisma `npx prisma init`
+  - Use `npx prisma db push` to push new changes followed by `npx prisma generate`
+  - Use `npx prisma studio` to view data
+- ngrok
+  - `ngrok http --domain=amoeba-suited-basically.ngrok-free.app 3000`
+- Webhooks
+  - Install `svix` using `npm install svix`
 
 
 ## Getting Started
