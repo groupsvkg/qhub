@@ -6,14 +6,11 @@ const HelpPage = () => {
         <div className="pt-16">
             <Sidebar />
             <div className="md:pl-60 h-full m-2">
+                <div className="w-full mb-4">
+                    <h1 className="text-2xl md:text-3xl font-bold">Help</h1>
+                </div>
                 <div className="space-y-2">
-                    <YouTubeEmbed videoid="0lgv6bn7h2w" params="controls=1" />
-                    <YouTubeEmbed videoid="gvTm4dqCxqc" params="controls=1" />
-                    <YouTubeEmbed videoid="Cv9u-xDz7I4" params="controls=1" />
-                    <YouTubeEmbed videoid="m6P1PZSI8bo" params="controls=1" />
-                    <YouTubeEmbed videoid="wuoxDy-3SxQ" params="controls=1" />
-                    <YouTubeEmbed videoid="CP8CrZYOo0o" params="controls=1" />
-                    <YouTubeEmbed videoid="dtkoPT20jss" params="controls=1" />
+                    <YouTubeEmbed videoid="VrDjr-_J5cg" params="controls=1" />
                 </div>
             </div>
         </div>
