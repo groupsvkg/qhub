@@ -33,7 +33,7 @@ const MarketingPage = () => {
                 headingFont.className
             )}>
                 <div className="mb-4 flex items-center border shadow-sm p-2 px-4 bg-amber-100 text-amber-700 rounded-full uppercase">
-                    <Image 
+                    <Image
                         src="/logo.svg"
                         alt="Logo"
                         height={40}
@@ -46,7 +46,7 @@ const MarketingPage = () => {
                     Where Knowledge Meets Fun!
                 </h1>
                 <div className="text-3xl md:text-6xl bg-gradient-to-r from-pink-600 to-green-300 text-white px-4 p-2 rounded-md pb-4 w-fit">
-                    Explore, Play, Learn
+                    Explore . Play . Learn
                 </div>
             </div>
             <div className={cn(
