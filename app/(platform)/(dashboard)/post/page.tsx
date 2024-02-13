@@ -15,7 +15,7 @@ const PostPage = () => {
                             <CardTitle className="text-2xl">Post a Problem</CardTitle>
                             <CardDescription>
                                 Post a problem related to any topic.<br />
-                                <span className="text-gray-500 mt-2 text-xs">Usefull links:&nbsp;</span>
+                                <span className="text-gray-500 mt-2 text-xs">Useful links:&nbsp;</span>
                                 <span className="text-blue-400 text-xs">
                                     <Link href={"https://www.markdownguide.org/cheat-sheet/"} rel="noopener noreferrer" target="_blank" prefetch={false}>markdown</Link>,&nbsp;
                                     <Link href="https://www.w3schools.com/graphics/svg_intro.asp" rel="noopener noreferrer" target="_blank">svg</Link>,&nbsp;
