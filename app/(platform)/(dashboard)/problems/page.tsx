@@ -38,7 +38,7 @@ const ProblemsPage = async () => {
                                             </div>
                                         </div>
                                         <div className="flex items-center justify-between text-xs text-gray-500 gap-x-1 pt-1">
-                                            {formatDistanceToNowStrict(problem.createdAt)}
+                                            {formatDistanceToNowStrict(problem.createdAt)} ago
                                             <div className="flex">
                                                 {problem.likes} <ArrowUp className="h-4 w-4 text-green-500" />&nbsp;
                                                 {problem.dislikes} <ArrowDown className="h-4 w-4 text-red-500" />
